@@ -1,0 +1,75 @@
+[build]
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[redirects]]
+  from = "/"
+  to = "/templates/01main.html"
+  status = 200
+
+[[redirects]]
+  from = "/01main.html"
+  to = "/templates/01main.html"
+  status = 200
+
+[[redirects]]
+  from = "/02arpanet.html"
+  to = "/templates/02arpanet.html"
+  status = 200
+
+[[redirects]]
+  from = "/03tcpip.html"
+  to = "/templates/03tcpip.html"
+  status = 200
+
+[[redirects]]
+  from = "/04www.html"
+  to = "/templates/04www.html"
+  status = 200
+
+[[redirects]]
+  from = "/05navegadores.html"
+  to = "/templates/05navegadores.html"
+  status = 200
+
+[[redirects]]
+  from = "/06web20.html"
+  to = "/templates/06web20.html"
+  status = 200
+
+[[redirects]]
+  from = "/07eramobile.html"
+  to = "/templates/07eramobile.html"
+  status = 200
+
+[[redirects]]
+  from = "/08web3.0.html"
+  to = "/templates/08web3.0.html"
+  status = 200
+
+[[redirects]]
+  from = "/09IA.html"
+  to = "/templates/09IA.html"
+  status = 200
+
+[[redirects]]
+  from = "/10rate.html"
+  to = "/templates/10rate.html"
+  status = 200
+
+[[redirects]]
+  from = "/11email.html"
+  to = "/templates/11email.html"
+  status = 200
+
+[[redirects]]
+  from = "/12google.html"
+  to = "/templates/12google.html"
+  status = 200
+
+[[headers]]
+  for = "static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
