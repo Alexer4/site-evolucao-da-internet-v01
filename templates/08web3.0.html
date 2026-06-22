@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Evolução da Internet — Web 3.0</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23000d1a' stroke='%2300aaff' stroke-width='2'/%3E%3Cellipse cx='32' cy='32' rx='15' ry='30' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='10' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cline x1='32' y1='2' x2='32' y2='62' stroke='%2300aaff' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='44' cy='18' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='14' cy='38' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='48' cy='42' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='32' cy='12' r='2.5' fill='%23ffffff'/%3E%3Cline x1='20' y1='20' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='20' y1='20' x2='14' y2='38' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='44' y1='18' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='14' y1='38' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='20' y2='20' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E">
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="cabecalho">
+        <ul class="cabecalho_conteudo">
+            <li class="cabecalho_conteudo_item"><a href="01main.html">Início</a></li>
+            <li class="cabecalho_conteudo_item cabecalho_dropdown">
+                <a href="#">Linha do Tempo ▾</a>
+                <ul class="dropdown__menu">
+                    <li><a href="02arpanet.html">1969 — ARPANET</a></li>
+                    <li><a href="11email.html">1971 — Primeiro E-mail</a></li>
+                    <li><a href="03tcpip.html">1983 — TCP/IP</a></li>
+                    <li><a href="04www.html">1991 — World Wide Web</a></li>
+                    <li><a href="05navegadores.html">1993 — Era dos Navegadores</a></li>
+                    <li><a href="12google.html">1998 — Google & Busca</a></li>
+                    <li><a href="06web20.html">2004 — Web 2.0</a></li>
+                    <li><a href="07eramobile.html">2007 — Era Mobile</a></li>
+                    <li><a href="08web3.0.html">2020 — Web 3.0</a></li>
+                    <li><a href="09IA.html">2023+ — Inteligência Artificial</a></li>
+                    <li><a href="10rate.html">Avalie Meu Site!</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="timeline-horizontal-wrapper">
+        <div class="timeline-horizontal" id="timelineHorizontal">
+            <a href="02arpanet.html" class="th-node" data-era="0" data-year="1969" data-name="ARPANET">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1969</span>
+                <span class="th-node-name">ARPANET</span>
+            </a>
+            <a href="11email.html" class="th-node" data-era="1" data-year="1971" data-name="E-mail">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1971</span>
+                <span class="th-node-name">E-mail</span>
+            </a>
+            <a href="03tcpip.html" class="th-node" data-era="2" data-year="1983" data-name="TCP/IP">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1983</span>
+                <span class="th-node-name">TCP/IP</span>
+            </a>
+            <a href="04www.html" class="th-node" data-era="3" data-year="1991" data-name="WWW">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1991</span>
+                <span class="th-node-name">WWW</span>
+            </a>
+            <a href="05navegadores.html" class="th-node" data-era="4" data-year="1993" data-name="Navegadores">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1993</span>
+                <span class="th-node-name">Navegadores</span>
+            </a>
+            <a href="12google.html" class="th-node" data-era="5" data-year="1998" data-name="Google">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1998</span>
+                <span class="th-node-name">Google</span>
+            </a>
+            <a href="06web20.html" class="th-node" data-era="6" data-year="2004" data-name="Web 2.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2004</span>
+                <span class="th-node-name">Web 2.0</span>
+            </a>
+            <a href="07eramobile.html" class="th-node" data-era="7" data-year="2007" data-name="Mobile">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2007</span>
+                <span class="th-node-name">Mobile</span>
+            </a>
+            <a href="08web3.0.html" class="th-node" data-era="8" data-year="2020" data-name="Web 3.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2020</span>
+                <span class="th-node-name">Web 3.0</span>
+            </a>
+            <a href="09IA.html" class="th-node" data-era="9" data-year="2023" data-name="IA">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2023</span>
+                <span class="th-node-name">IA</span>
+            </a>
+        </div>
+        <div class="th-progress" id="thProgress"></div>
+    </div>
+
+    <main class="conteudo">
+
+        <div class="conteudo__container__secao1">
+            <h1 class="conteudo__titulo">Web 3.0 — A Internet Descentralizada</h1>
+            <h3 class="conteudo__subtitulo"><i>"2020 · Blockchain, criptomoedas e o metaverso: a nova fronteira da web"</i></h3>
+            <p class="conteudo__paragrafo">A Web 3.0 representa a terceira geração da internet — descentralizada, baseada em blockchain, onde os usuários controlam seus próprios dados e identidades. Bitcoin, Ethereum, NFTs, DAOs e metaverso são as palavras-chave de uma revolução que promete devolver o poder das mãos das grandes corporações para os indivíduos.</p>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">⛓️ Simulador de Blockchain</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Digite uma transação e clique em "Minerar Bloco" — se alterar um bloco anterior, os hashes ficarão vermelhos!</p>
+            <div class="blockchain-sim">
+                <div class="blockchain-display" id="blockchainDisplay"></div>
+                <div class="blockchain-input-group">
+                    <input type="text" id="txInput" class="blockchain-input" placeholder="Digite a transação (ex: Alice enviou 10 BTC para Bob)" value="Alice enviou 10 BTC para Bob">
+                    <button id="mineBtn" class="email-btn">⛏️ Minerar Bloco</button>
+                </div>
+                <button id="tamperBtn" class="email-btn" style="background:linear-gradient(135deg,#cc4400,#ff4444);margin-top:0.5rem;">⚠️ Alterar Bloco 1 (Para testar)</button>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">🔐 Gerador de Hash SHA-256</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Digite qualquer texto e veja o hash mudar instantaneamente a cada tecla</p>
+            <div class="hash-generator">
+                <input type="text" id="hashInput" class="hash-input" value="Olá, Web 3.0!" placeholder="Digite algo...">
+                <div id="hashOutput" class="hash-output"></div>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">O Significado</h2>
+            <p class="conteudo__paragrafo">A Web 3.0 é mais que tecnologia — é uma filosofia. Ela propõe uma internet onde você é dono dos seus dados, onde contratos são autoexecutáveis (smart contracts) e onde comunidades se organizam sem hierarquia (DAOs). Ainda em estágio inicial, a Web 3.0 enfrenta desafios de escala, usabilidade e regulação, mas seu potencial de transformação é comparável ao da própria web original.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <strong>Copyright &copy; 2026 - Criado por Alexandre e André.</strong>
+    </footer>
+
+    <script>
+
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drops.forEach((y, i) => {
+                const char = Math.random() > 0.5 ? '1' : '0';
+                const x = i * fontSize;
+                ctx.fillStyle = Math.random() > 0.95 ? '#ffffff' : '#00aaff';
+                ctx.font = fontSize + 'px monospace';
+                ctx.fillText(char, x, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 40);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('visivel'); }, i * 150); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.timeline__item').forEach(item => { observer.observe(item); });
+
+        // ── SHA-256 Implementation (pure JS) ──
+        function sha256(ascii) {
+            function rightRotate(value, amount) { return (value >>> amount) | (value << (32 - amount)); }
+            const mathPow = Math.pow;
+            const maxWord = mathPow(2, 32);
+            const lengthProperty = 'length';
+            let i, j;
+            let result = '';
+            const words = [];
+            const asciiBitLength = ascii[lengthProperty] * 8;
+            let hash = sha256.h = sha256.h || [];
+            const k = sha256.k = sha256.k || [];
+            let primeCounter = k[lengthProperty];
+            const isComposite = {};
+            for (let candidate = 2; primeCounter < 64; candidate++) {
+                if (!isComposite[candidate]) {
+                    for (i = 0; i < 313; i += candidate) { isComposite[i] = candidate; }
+                    hash[primeCounter] = (mathPow(candidate, 0.5) * maxWord) | 0;
+                    k[primeCounter++] = (mathPow(candidate, 1/3) * maxWord) | 0;
+                }
+            }
+            ascii += '\x80';
+            while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+            for (i = 0; i < ascii[lengthProperty]; i++) {
+                j = ascii.charCodeAt(i);
+                if (j >> 8) return;
+                words[i >> 2] |= j << (((3 - i) % 4) * 8);
+            }
+            words[words[lengthProperty]] = ((asciiBitLength / maxWord) | 0);
+            words[words[lengthProperty]] = (asciiBitLength);
+            for (j = 0; j < words[lengthProperty];) {
+                const w = words.slice(j, j += 16);
+                const oldHash = hash;
+                hash = hash.slice(0, 8);
+                for (i = 0; i < 64; i++) {
+                    const w15 = w[i - 15], w2 = w[i - 2];
+                    const a = hash[0], b = hash[1], c = hash[2], d = hash[3], e = hash[4], f = hash[5], g = hash[6], h = hash[7];
+                    const sigma1 = rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25);
+                    const ch = (e & f) ^ ((~e) & g);
+                    const temp1 = h + sigma1 + ch + k[i] + w[i];
+                    const sigma0 = rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22);
+                    const maj = (a & b) ^ (a & c) ^ (b & c);
+                    const temp2 = sigma0 + maj;
+                    hash = [(temp1 + temp2) | 0, a, b, c, (d + temp1) | 0, e, f, g];
+                    for (let t = 0; t < 8; t++) w[t] = (w[t] + hash[t]) | 0;
+                }
+                for (i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
+            }
+            for (i = 0; i < 8; i++) {
+                for (j = 3; j >= 0; j--) {
+                    const b = (hash[i] >> (j * 8)) & 255;
+                    result += ((b < 16) ? '0' : '') + b.toString(16);
+                }
+            }
+            return result;
+        }
+
+        // ── Blockchain Simulator ──
+        let chain = [];
+        let tampered = false;
+
+        function createBlock(index, data, prevHash) {
+            const timestamp = new Date().toISOString();
+            const nonce = Math.floor(Math.random() * 1000000);
+            const raw = index + timestamp + data + prevHash + nonce;
+            const hash = sha256(raw);
+            return { index, timestamp, data, prevHash, nonce, hash };
+        }
+
+        function renderChain() {
+            const display = document.getElementById('blockchainDisplay');
+            display.innerHTML = '';
+            chain.forEach((block, i) => {
+                const div = document.createElement('div');
+                div.className = 'blockchain-block';
+
+                const prevChain = i > 0 ? chain.slice(0, i) : [];
+                let isValid = true;
+                for (let j = 0; j < prevChain.length; j++) {
+                    const b = prevChain[j];
+                    const raw = b.index + b.timestamp + b.data + (j > 0 ? prevChain[j-1].hash : '0') + b.nonce;
+                    if (sha256(raw) !== b.hash) { isValid = false; break; }
+                }
+                if (!isValid) div.classList.add('invalid');
+
+                div.innerHTML = `
+                    <div class="blockchain-block-data"><strong>Bloco #${block.index}</strong> — ${block.data}</div>
+                    <div class="blockchain-block-nonce">Nonce: ${block.nonce} | Timestamp: ${new Date(block.timestamp).toLocaleTimeString('pt-BR')}</div>
+                    <div class="blockchain-block-hash">Hash: ${block.hash}</div>
+                    <div class="blockchain-block-hash" style="color:rgba(255,255,255,0.3);font-size:0.6rem;">Prev: ${block.prevHash.substring(0,20)}...</div>
+                `;
+                display.appendChild(div);
+            });
+        }
+
+        function initChain() {
+            chain = [];
+            const genesis = createBlock(0, 'Bloco Gênesis — Web 3.0', '0');
+            chain.push(genesis);
+            for (let i = 1; i <= 2; i++) {
+                const block = createBlock(i, `Transação inicial #${i}`, chain[i-1].hash);
+                chain.push(block);
+            }
+            renderChain();
+        }
+
+        document.getElementById('mineBtn').addEventListener('click', function() {
+            const tx = document.getElementById('txInput').value.trim() || 'Transação vazia';
+            const prevHash = chain.length > 0 ? chain[chain.length - 1].hash : '0';
+            const block = createBlock(chain.length, tx, prevHash);
+            chain.push(block);
+            renderChain();
+        });
+
+        document.getElementById('tamperBtn').addEventListener('click', function() {
+            if (chain.length > 1) {
+                chain[1].data = '⚠️ TRANSACAO ALTERADA — HACK!';
+                renderChain();
+            }
+        });
+
+        initChain();
+
+        // ── Hash Generator ──
+        const hashInput = document.getElementById('hashInput');
+        const hashOutput = document.getElementById('hashOutput');
+
+        function updateHash() {
+            hashOutput.textContent = sha256(hashInput.value) || '(erro ao gerar hash)';
+        }
+
+        hashInput.addEventListener('input', updateHash);
+        updateHash();
+
+        // ── TIMELINE HORIZONTAL — SCROLL PROGRESSIVO ──
+        const thNodes = document.querySelectorAll('.th-node');
+        const timelineItems = document.querySelectorAll('.timeline__item');
+        const progressBar = document.getElementById('thProgress');
+
+        function updateHorizontalTimeline() {
+            let maxVisible = -1;
+            timelineItems.forEach((item, i) => {
+                const rect = item.getBoundingClientRect();
+                const threshold = window.innerHeight * 0.75;
+                if (rect.top < threshold) {
+                    maxVisible = i;
+                }
+            });
+
+            thNodes.forEach((node, i) => {
+                node.classList.toggle('active', i <= maxVisible);
+            });
+
+            const total = thNodes.length;
+            const pct = total > 1 ? ((maxVisible + 1) / total) * 100 : 0;
+            progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+        }
+
+        window.addEventListener('scroll', updateHorizontalTimeline);
+        window.addEventListener('resize', updateHorizontalTimeline);
+        updateHorizontalTimeline();
+    </script>
+
+</body>
+</html>

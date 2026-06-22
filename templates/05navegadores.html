@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Evolução da Internet — Guerra dos Navegadores</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23000d1a' stroke='%2300aaff' stroke-width='2'/%3E%3Cellipse cx='32' cy='32' rx='15' ry='30' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='10' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cline x1='32' y1='2' x2='32' y2='62' stroke='%2300aaff' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='44' cy='18' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='14' cy='38' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='48' cy='42' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='32' cy='12' r='2.5' fill='%23ffffff'/%3E%3Cline x1='20' y1='20' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='20' y1='20' x2='14' y2='38' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='44' y1='18' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='14' y1='38' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='20' y2='20' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E">
+</head>
+<body id="browserBody">
+
+    <canvas id="matrix"></canvas>
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="cabecalho">
+        <ul class="cabecalho_conteudo">
+            <li class="cabecalho_conteudo_item"><a href="01main.html">Início</a></li>
+            <li class="cabecalho_conteudo_item cabecalho_dropdown">
+                <a href="#">Linha do Tempo ▾</a>
+                <ul class="dropdown__menu">
+                    <li><a href="02arpanet.html">1969 — ARPANET</a></li>
+                    <li><a href="11email.html">1971 — Primeiro E-mail</a></li>
+                    <li><a href="03tcpip.html">1983 — TCP/IP</a></li>
+                    <li><a href="04www.html">1991 — World Wide Web</a></li>
+                    <li><a href="05navegadores.html">1993 — Era dos Navegadores</a></li>
+                    <li><a href="12google.html">1998 — Google & Busca</a></li>
+                    <li><a href="06web20.html">2004 — Web 2.0</a></li>
+                    <li><a href="07eramobile.html">2007 — Era Mobile</a></li>
+                    <li><a href="08web3.0.html">2020 — Web 3.0</a></li>
+                    <li><a href="09IA.html">2023+ — Inteligência Artificial</a></li>
+                    <li><a href="10rate.html">Avalie Meu Site!</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="timeline-horizontal-wrapper">
+        <div class="timeline-horizontal" id="timelineHorizontal">
+            <a href="02arpanet.html" class="th-node" data-era="0" data-year="1969" data-name="ARPANET">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1969</span>
+                <span class="th-node-name">ARPANET</span>
+            </a>
+            <a href="11email.html" class="th-node" data-era="1" data-year="1971" data-name="E-mail">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1971</span>
+                <span class="th-node-name">E-mail</span>
+            </a>
+            <a href="03tcpip.html" class="th-node" data-era="2" data-year="1983" data-name="TCP/IP">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1983</span>
+                <span class="th-node-name">TCP/IP</span>
+            </a>
+            <a href="04www.html" class="th-node" data-era="3" data-year="1991" data-name="WWW">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1991</span>
+                <span class="th-node-name">WWW</span>
+            </a>
+            <a href="05navegadores.html" class="th-node" data-era="4" data-year="1993" data-name="Navegadores">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1993</span>
+                <span class="th-node-name">Navegadores</span>
+            </a>
+            <a href="12google.html" class="th-node" data-era="5" data-year="1998" data-name="Google">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1998</span>
+                <span class="th-node-name">Google</span>
+            </a>
+            <a href="06web20.html" class="th-node" data-era="6" data-year="2004" data-name="Web 2.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2004</span>
+                <span class="th-node-name">Web 2.0</span>
+            </a>
+            <a href="07eramobile.html" class="th-node" data-era="7" data-year="2007" data-name="Mobile">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2007</span>
+                <span class="th-node-name">Mobile</span>
+            </a>
+            <a href="08web3.0.html" class="th-node" data-era="8" data-year="2020" data-name="Web 3.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2020</span>
+                <span class="th-node-name">Web 3.0</span>
+            </a>
+            <a href="09IA.html" class="th-node" data-era="9" data-year="2023" data-name="IA">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2023</span>
+                <span class="th-node-name">IA</span>
+            </a>
+        </div>
+        <div class="th-progress" id="thProgress"></div>
+    </div>
+
+    <main class="conteudo">
+
+        <div class="conteudo__container__secao1">
+            <h1 class="conteudo__titulo">A Guerra dos Navegadores</h1>
+            <h3 class="conteudo__subtitulo"><i>"1993–2025 · De Mosaic a Chrome: a batalha pela janela da internet"</i></h3>
+            <p class="conteudo__paragrafo">Desde o Mosaic em 1993, os navegadores travam uma guerra silenciosa pelo monopólio da janela da web. Netscape, Internet Explorer, Firefox, Chrome, Safari — cada um teve seu momento de glória e declínio. Esta é a história visual dessa disputa.</p>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">📊 Market Share dos Navegadores (1993–2025)</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Arraste o slider para navegar pelos anos</p>
+            <div class="browser-chart-wrap">
+                <canvas id="browserCanvas"></canvas>
+            </div>
+            <div class="browser-year-label" id="browserYearLabel">2000</div>
+            <input type="range" class="browser-slider" id="browserSlider" min="1993" max="2025" value="2000" step="1">
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">🎨 Seletor de Estética</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Escolha um ano para ver o estilo visual daquela época</p>
+            <div class="browser-era-selector">
+                <button class="browser-era-btn" data-era="1997">1997 — Netscape</button>
+                <button class="browser-era-btn" data-era="2004">2004 — Firefox</button>
+                <button class="browser-era-btn active" data-era="2012">2012 — Chrome</button>
+            </div>
+            <div class="conteudo__container__secao4" style="margin-bottom:0;" id="eraStyleDemo">
+                <p style="text-align:center;">A estética da página mudará para refletir o visual de <strong id="eraStyleName">2012 — Chrome (Flat)</strong></p>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">A Batalha</h2>
+            <p class="conteudo__paragrafo">Em meados dos anos 1990, a Netscape dominava mais de 80% do mercado. A Microsoft então lançou o Internet Explorer de graça, amarrado ao Windows, e desencadeou a "Primeira Guerra dos Navegadores". A Netscape perdeu, mas seu código-fonte se tornou a base do Firefox. Anos depois, o Chrome do Google chegou e conquistou o mundo com velocidade e simplicidade. Hoje, o Chrome tem mais de 65% do mercado global.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <strong>Copyright &copy; 2026 - Criado por Alexandre e André.</strong>
+    </footer>
+
+    <script>
+
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drops.forEach((y, i) => {
+                const char = Math.random() > 0.5 ? '1' : '0';
+                const x = i * fontSize;
+                ctx.fillStyle = Math.random() > 0.95 ? '#ffffff' : '#00aaff';
+                ctx.font = fontSize + 'px monospace';
+                ctx.fillText(char, x, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 40);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('visivel'); }, i * 150); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.timeline__item').forEach(item => { observer.observe(item); });
+
+        // ── Browser Market Share Chart ──
+        const bCanvas = document.getElementById('browserCanvas');
+        const bCtx = bCanvas.getContext('2d');
+        const bSlider = document.getElementById('browserSlider');
+        const bYearLabel = document.getElementById('browserYearLabel');
+
+        const browserData = {
+            1993: { Mosaic: 100 },
+            1995: { Netscape: 80, IE: 15, Mosaic: 5 },
+            1997: { Netscape: 70, IE: 25, Outros: 5 },
+            1999: { IE: 60, Netscape: 30, Outros: 10 },
+            2001: { IE: 80, Netscape: 10, Firefox: 5, Outros: 5 },
+            2003: { IE: 85, Firefox: 8, Safari: 3, Outros: 4 },
+            2005: { IE: 75, Firefox: 15, Safari: 5, Opera: 3, Outros: 2 },
+            2007: { IE: 68, Firefox: 20, Safari: 6, Opera: 4, Outros: 2 },
+            2009: { IE: 55, Firefox: 28, Chrome: 5, Safari: 8, Opera: 3, Outros: 1 },
+            2011: { IE: 40, Firefox: 25, Chrome: 20, Safari: 10, Opera: 4, Outros: 1 },
+            2013: { Chrome: 35, IE: 25, Firefox: 20, Safari: 12, Opera: 6, Outros: 2 },
+            2015: { Chrome: 45, IE: 18, Firefox: 15, Safari: 13, Opera: 7, Edge: 2 },
+            2017: { Chrome: 55, Firefox: 12, Safari: 14, IE: 8, Edge: 6, Opera: 5 },
+            2019: { Chrome: 62, Safari: 15, Firefox: 10, Edge: 7, Opera: 4, Outros: 2 },
+            2021: { Chrome: 65, Safari: 16, Firefox: 8, Edge: 7, Opera: 3, Outros: 1 },
+            2023: { Chrome: 66, Safari: 17, Firefox: 7, Edge: 6, Opera: 3, Outros: 1 },
+            2025: { Chrome: 65, Safari: 18, Firefox: 6, Edge: 7, Opera: 3, Outros: 1 }
+        };
+
+        const colors = {
+            Mosaic: '#888',
+            Netscape: '#cc6600',
+            IE: '#0066cc',
+            Firefox: '#ff6600',
+            Safari: '#00aaff',
+            Chrome: '#34a853',
+            Opera: '#cc0000',
+            Edge: '#0078d7',
+            Outros: '#999'
+        };
+
+        function resizeBCanvas() {
+            const rect = bCanvas.getBoundingClientRect();
+            bCanvas.width = rect.width || 550;
+            bCanvas.height = 300;
+        }
+        resizeBCanvas();
+        window.addEventListener('resize', resizeBCanvas);
+
+        function findClosestData(year) {
+            const years = Object.keys(browserData).map(Number).sort((a,b) => a-b);
+            let closest = years[0];
+            for (const y of years) {
+                if (Math.abs(y - year) < Math.abs(closest - year)) closest = y;
+            }
+            return browserData[closest];
+        }
+
+        function drawChart(year) {
+            const w = bCanvas.width, h = bCanvas.height;
+            bCtx.fillStyle = 'rgba(0,0,0,0.3)';
+            bCtx.fillRect(0, 0, w, h);
+
+            const data = findClosestData(year);
+            const entries = Object.entries(data).sort((a,b) => b[1] - a[1]);
+            const maxVal = 100;
+            const barWidth = Math.min(50, (w - 60) / entries.length);
+            const startX = (w - (entries.length * barWidth + (entries.length - 1) * 8)) / 2;
+
+            entries.forEach(([name, pct], i) => {
+                const x = startX + i * (barWidth + 8);
+                const barH = (pct / maxVal) * (h - 60);
+                const y = h - 30 - barH;
+
+                bCtx.fillStyle = colors[name] || '#888';
+                bCtx.globalAlpha = 0.85;
+                bCtx.fillRect(x, y, barWidth, barH);
+                bCtx.globalAlpha = 1;
+
+                bCtx.fillStyle = 'rgba(255,255,255,0.8)';
+                bCtx.font = '10px Arial';
+                bCtx.textAlign = 'center';
+                bCtx.fillText(pct + '%', x + barWidth/2, y - 5);
+
+                bCtx.fillStyle = 'rgba(255,255,255,0.6)';
+                bCtx.font = '8px Arial';
+                bCtx.fillText(name, x + barWidth/2, h - 10);
+            });
+        }
+
+        bSlider.addEventListener('input', function() {
+            const year = parseInt(this.value);
+            bYearLabel.textContent = year;
+            drawChart(year);
+        });
+        drawChart(2000);
+
+        // ── Era Style Selector ──
+        document.querySelectorAll('.browser-era-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.browser-era-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const era = this.dataset.era;
+                const body = document.getElementById('browserBody');
+                const nameEl = document.getElementById('eraStyleName');
+
+                body.classList.remove('era-1997', 'era-2004', 'era-2012');
+
+                if (era === '1997') {
+                    body.classList.add('era-1997');
+                    nameEl.textContent = '1997 — Netscape (Cinza, Times New Roman)';
+                } else if (era === '2004') {
+                    body.classList.add('era-2004');
+                    nameEl.textContent = '2004 — Firefox (Arredondado, Curvy)';
+                } else if (era === '2012') {
+                    body.classList.add('era-2012');
+                    nameEl.textContent = '2012 — Chrome (Flat, Minimalista)';
+                }
+            });
+        });
+
+        // ── TIMELINE HORIZONTAL — SCROLL PROGRESSIVO ──
+        const thNodes = document.querySelectorAll('.th-node');
+        const timelineItems = document.querySelectorAll('.timeline__item');
+        const progressBar = document.getElementById('thProgress');
+
+        function updateHorizontalTimeline() {
+            let maxVisible = -1;
+            timelineItems.forEach((item, i) => {
+                const rect = item.getBoundingClientRect();
+                const threshold = window.innerHeight * 0.75;
+                if (rect.top < threshold) {
+                    maxVisible = i;
+                }
+            });
+
+            thNodes.forEach((node, i) => {
+                node.classList.toggle('active', i <= maxVisible);
+            });
+
+            const total = thNodes.length;
+            const pct = total > 1 ? ((maxVisible + 1) / total) * 100 : 0;
+            progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+        }
+
+        window.addEventListener('scroll', updateHorizontalTimeline);
+        window.addEventListener('resize', updateHorizontalTimeline);
+        updateHorizontalTimeline();
+    </script>
+
+    <style>
+        .era-1997 .conteudo__container__secao1,
+        .era-1997 .conteudo__container__secao2,
+        .era-1997 .conteudo__container__secao4 {
+            font-family: 'Times New Roman', serif !important;
+            background: #c0c0c0 !important;
+            border: 2px solid #808080 !important;
+            border-radius: 0 !important;
+            color: #000 !important;
+        }
+        .era-1997 .conteudo__container__secao1 .conteudo__titulo {
+            -webkit-text-fill-color: #0000cc !important;
+            background: none !important;
+            color: #0000cc !important;
+        }
+        .era-1997 .conteudo__titulo { color: #0000cc !important; }
+        .era-1997 .conteudo__paragrafo { color: #000 !important; }
+        .era-1997 .conteudo__subtitulo { color: #333 !important; }
+        .era-1997 a { color: #00f !important; text-decoration: underline !important; }
+
+        .era-2004 .conteudo__container__secao1,
+        .era-2004 .conteudo__container__secao2,
+        .era-2004 .conteudo__container__secao4 {
+            font-family: 'Georgia', serif !important;
+            background: linear-gradient(180deg, #f5f5ff, #e0e0f0) !important;
+            border: 3px solid #ff6600 !important;
+            border-radius: 16px !important;
+            box-shadow: 0 0 20px rgba(255,102,0,0.3) !important;
+        }
+        .era-2004 .conteudo__container__secao1 .conteudo__titulo {
+            -webkit-text-fill-color: #ff6600 !important;
+            background: none !important;
+            color: #ff6600 !important;
+        }
+        .era-2004 .conteudo__titulo { color: #ff6600 !important; }
+        .era-2004 .conteudo__paragrafo { color: #333 !important; }
+        .era-2004 .conteudo__subtitulo { color: #666 !important; }
+    </style>
+
+</body>
+</html>

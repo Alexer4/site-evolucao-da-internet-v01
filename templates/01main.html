@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Evolução da Internet</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23000d1a' stroke='%2300aaff' stroke-width='2'/%3E%3Cellipse cx='32' cy='32' rx='15' ry='30' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='10' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cline x1='32' y1='2' x2='32' y2='62' stroke='%2300aaff' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='44' cy='18' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='14' cy='38' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='48' cy='42' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='32' cy='12' r='2.5' fill='%23ffffff'/%3E%3Cline x1='20' y1='20' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='20' y1='20' x2='14' y2='38' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='44' y1='18' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='14' y1='38' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='20' y2='20' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E">
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="cabecalho">
+        <ul class="cabecalho_conteudo">
+            <li class="cabecalho_conteudo_item"><a href="01main.html">Início</a></li>
+            <li class="cabecalho_conteudo_item cabecalho_dropdown">
+                <a href="#">Linha do Tempo ▾</a>
+                <ul class="dropdown__menu">
+                    <li><a href="02arpanet.html">1969 — ARPANET</a></li>
+                    <li><a href="11email.html">1971 — Primeiro E-mail</a></li>
+                    <li><a href="03tcpip.html">1983 — TCP/IP</a></li>
+                    <li><a href="04www.html">1991 — World Wide Web</a></li>
+                    <li><a href="05navegadores.html">1993 — Era dos Navegadores</a></li>
+                    <li><a href="12google.html">1998 — Google & Busca</a></li>
+                    <li><a href="06web20.html">2004 — Web 2.0</a></li>
+                    <li><a href="07eramobile.html">2007 — Era Mobile</a></li>
+                    <li><a href="08web3.0.html">2020 — Web 3.0</a></li>
+                    <li><a href="09IA.html">2023+ — Inteligência Artificial</a></li>
+                    <li><a href="10rate.html">Avalie Meu Site!</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="timeline-horizontal-wrapper">
+        <div class="timeline-horizontal" id="timelineHorizontal">
+            <a href="02arpanet.html" class="th-node" data-era="0" data-year="1969" data-name="ARPANET">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1969</span>
+                <span class="th-node-name">ARPANET</span>
+            </a>
+            <a href="11email.html" class="th-node" data-era="1" data-year="1971" data-name="E-mail">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1971</span>
+                <span class="th-node-name">E-mail</span>
+            </a>
+            <a href="03tcpip.html" class="th-node" data-era="2" data-year="1983" data-name="TCP/IP">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1983</span>
+                <span class="th-node-name">TCP/IP</span>
+            </a>
+            <a href="04www.html" class="th-node" data-era="3" data-year="1991" data-name="WWW">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1991</span>
+                <span class="th-node-name">WWW</span>
+            </a>
+            <a href="05navegadores.html" class="th-node" data-era="4" data-year="1993" data-name="Navegadores">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1993</span>
+                <span class="th-node-name">Navegadores</span>
+            </a>
+            <a href="12google.html" class="th-node" data-era="5" data-year="1998" data-name="Google">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1998</span>
+                <span class="th-node-name">Google</span>
+            </a>
+            <a href="06web20.html" class="th-node" data-era="6" data-year="2004" data-name="Web 2.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2004</span>
+                <span class="th-node-name">Web 2.0</span>
+            </a>
+            <a href="07eramobile.html" class="th-node" data-era="7" data-year="2007" data-name="Mobile">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2007</span>
+                <span class="th-node-name">Mobile</span>
+            </a>
+            <a href="08web3.0.html" class="th-node" data-era="8" data-year="2020" data-name="Web 3.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2020</span>
+                <span class="th-node-name">Web 3.0</span>
+            </a>
+            <a href="09IA.html" class="th-node" data-era="9" data-year="2023" data-name="IA">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2023</span>
+                <span class="th-node-name">IA</span>
+            </a>
+        </div>
+        <div class="th-progress" id="thProgress"></div>
+    </div>
+
+    <main class="conteudo">
+
+        <div class="conteudo__container__secao1">
+            <h1 class="conteudo__titulo">A Evolução da Internet: Da ARPANET ao Metaverso</h1>
+            <h3 class="conteudo__subtitulo"><i>"Mais de 50 anos de conexão, inovação e transformação digital"</i></h3>
+            <p class="conteudo__paragrafo">A internet é uma rede global de computadores que permite a comunicação e o compartilhamento de informações em todo o mundo. Ela evoluiu significativamente desde sua criação, passando por várias fases de desenvolvimento e inovação.</p>
+        </div>
+
+        <div class="conteudo__container__secao2">
+            <h2 class="conteudo__titulo">Introdução</h2>
+            <p class="conteudo__paragrafo">A internet é a maior revolução da história humana moderna. Em menos de meio século, ela passou de uma rede militar experimental para o sistema nervoso central da civilização global — conectando bilhões de pessoas, máquinas e ideias em tempo real.</p>
+        </div>
+
+        <div class="conteudo__container__secao3" id="timelineSection">
+            <h2 class="conteudo__titulo">Linha do Tempo</h2>
+            <div class="timeline">
+
+                <div class="timeline__item" data-era="0">
+                    <div class="timeline__icone">🔬</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">1969</span>
+                        <h3 class="timeline__titulo">ARPANET</h3>
+                        <p class="timeline__texto">Primeira mensagem enviada entre dois computadores nos EUA. O "login" travou depois da letra "o" — mas a internet havia nascido.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item" data-era="1">
+                    <div class="timeline__icone">📧</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">1971</span>
+                        <h3 class="timeline__titulo">Primeiro E-mail</h3>
+                        <p class="timeline__texto">Ray Tomlinson envia a primeira mensagem entre dois computadores e escolhe o @ como separador. A comunicação digital nunca mais seria a mesma.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item" data-era="2">
+                    <div class="timeline__icone">📡</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">1983</span>
+                        <h3 class="timeline__titulo">Protocolos TCP/IP</h3>
+                        <p class="timeline__texto">Estabeleceu a linguagem comum entre computadores do mundo inteiro. Considerado o "nascimento oficial" da internet.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item" data-era="3">
+                    <div class="timeline__icone">🕸️</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">1991</span>
+                        <h3 class="timeline__titulo">World Wide Web</h3>
+                        <p class="timeline__texto">Tim Berners-Lee cria o primeiro site da história. A web transforma a internet em algo acessível ao público.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item" data-era="4">
+                    <div class="timeline__icone">💻</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">1993–1999</span>
+                        <h3 class="timeline__titulo">Era dos Navegadores</h3>
+                        <p class="timeline__texto">Mosaic, Netscape, Internet Explorer. A internet chega às casas. Surgem o e-mail popular, os chats e as primeiras lojas online.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item" data-era="5">
+                    <div class="timeline__icone">🔍</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">1998</span>
+                        <h3 class="timeline__titulo">Google & a Era das Buscas</h3>
+                        <p class="timeline__texto">Larry Page e Sergey Brin fundam o Google. O PageRank revoluciona a busca na web e organiza a informação do mundo.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item" data-era="6">
+                    <div class="timeline__icone">👥</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">2004–2010</span>
+                        <h3 class="timeline__titulo">Web 2.0 — A Internet Social</h3>
+                        <p class="timeline__texto">Facebook, YouTube, Twitter, Wikipedia. O usuário deixa de ser só leitor e passa a criar conteúdo.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item" data-era="7">
+                    <div class="timeline__icone">📱</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">2007–hoje</span>
+                        <h3 class="timeline__titulo">Era Mobile</h3>
+                        <p class="timeline__texto">O iPhone muda tudo. A internet sai do desktop e vai para o bolso de 5 bilhões de pessoas.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item" data-era="8">
+                    <div class="timeline__icone">🔗</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">2020–hoje</span>
+                        <h3 class="timeline__titulo">Web 3.0 & Blockchain</h3>
+                        <p class="timeline__texto">Blockchain, criptomoedas, NFTs, metaverso. A internet descentralizada promete devolver o controle dos dados aos usuários.</p>
+                    </div>
+                </div>
+
+                <div class="timeline__item" data-era="9">
+                    <div class="timeline__icone">🤖</div>
+                    <div class="timeline__conteudo">
+                        <span class="timeline__ano">2023–hoje</span>
+                        <h3 class="timeline__titulo">Inteligência Artificial</h3>
+                        <p class="timeline__texto">ChatGPT, Gemini, Claude. A internet começa a pensar, criar e agir de forma autônoma, inaugurando a era da IA generativa.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <strong>Copyright &copy; 2026 - Criado por Alexandre e André.</strong>
+    </footer>
+
+    <script>
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visivel');
+                    }, i * 150);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.timeline__item').forEach(item => {
+            observer.observe(item);
+        });
+
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            drops.forEach((y, i) => {
+                const char = Math.random() > 0.5 ? '1' : '0';
+                const x = i * fontSize;
+                ctx.fillStyle = Math.random() > 0.95 ? '#ffffff' : '#00aaff';
+                ctx.font = fontSize + 'px monospace';
+                ctx.fillText(char, x, y * fontSize);
+
+                if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            });
+        }
+
+        setInterval(draw, 40);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // ── TIMELINE HORIZONTAL — SCROLL PROGRESSIVO ──
+        const thNodes = document.querySelectorAll('.th-node');
+        const timelineItems = document.querySelectorAll('.timeline__item');
+        const progressBar = document.getElementById('thProgress');
+
+        function updateHorizontalTimeline() {
+            let maxVisible = -1;
+            timelineItems.forEach((item, i) => {
+                const rect = item.getBoundingClientRect();
+                const threshold = window.innerHeight * 0.75;
+                if (rect.top < threshold) {
+                    maxVisible = i;
+                }
+            });
+
+            thNodes.forEach((node, i) => {
+                node.classList.toggle('active', i <= maxVisible);
+            });
+
+            const total = thNodes.length;
+            const pct = total > 1 ? ((maxVisible + 1) / total) * 100 : 0;
+            progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+        }
+
+        window.addEventListener('scroll', updateHorizontalTimeline);
+        window.addEventListener('resize', updateHorizontalTimeline);
+        updateHorizontalTimeline();
+
+        // ── PARTÍCULAS NO CURSOR ──
+        const pCanvas = document.getElementById('particles-canvas');
+        const pCtx = pCanvas.getContext('2d');
+        let pW, pH;
+        let particles = [];
+
+        function resizeParticles() {
+            pW = pCanvas.width = window.innerWidth;
+            pH = pCanvas.height = window.innerHeight;
+        }
+        resizeParticles();
+        window.addEventListener('resize', resizeParticles);
+
+        document.addEventListener('mousemove', (e) => {
+            for (let i = 0; i < 3; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 0.5 + Math.random() * 1.5;
+                const life = 30 + Math.random() * 30;
+                const t = Math.random();
+                const r = Math.round(0 + t * 0);
+                const g = Math.round(170 + t * 85);
+                const b = Math.round(255);
+                particles.push({
+                    x: e.clientX + (Math.random() - 0.5) * 4,
+                    y: e.clientY + (Math.random() - 0.5) * 4,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    life: life,
+                    maxLife: life,
+                    size: 2 + Math.random() * 3,
+                    color: `rgb(${r},${g},${b})`
+                });
+            }
+        });
+
+        function animateParticles() {
+            pCtx.clearRect(0, 0, pW, pH);
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vx *= 0.97;
+                p.vy *= 0.97;
+                p.life--;
+                if (p.life <= 0) {
+                    particles.splice(i, 1);
+                    continue;
+                }
+                const alpha = p.life / p.maxLife;
+                pCtx.beginPath();
+                pCtx.arc(p.x, p.y, p.size * alpha, 0, Math.PI * 2);
+                pCtx.fillStyle = p.color;
+                pCtx.globalAlpha = alpha * 0.6;
+                pCtx.fill();
+                pCtx.globalAlpha = 1;
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Evolução da Internet — ARPANET</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23000d1a' stroke='%2300aaff' stroke-width='2'/%3E%3Cellipse cx='32' cy='32' rx='15' ry='30' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='10' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cline x1='32' y1='2' x2='32' y2='62' stroke='%2300aaff' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='44' cy='18' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='14' cy='38' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='48' cy='42' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='32' cy='12' r='2.5' fill='%23ffffff'/%3E%3Cline x1='20' y1='20' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='20' y1='20' x2='14' y2='38' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='44' y1='18' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='14' y1='38' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='20' y2='20' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E">
+    <style>
+        body { background: #000; color: #00ff41; font-family: monospace; }
+        .cabecalho { background: rgba(0, 20, 0, 0.85); border-bottom-color: rgba(0, 255, 65, 0.2); }
+        .cabecalho a { color: #00ff41; }
+        .dropdown__menu { background: rgba(0, 10, 0, 0.95); border-color: rgba(0, 255, 65, 0.25); }
+        .dropdown__menu li a { color: rgba(0, 255, 65, 0.8); }
+        .dropdown__menu li:hover { background: rgba(0, 255, 65, 0.1); }
+        .conteudo__titulo { color: #00ff41; }
+        .conteudo__subtitulo { color: rgba(0, 255, 65, 0.7); }
+        .conteudo__paragrafo { color: rgba(0, 255, 65, 0.85); }
+        .conteudo__container__secao1 .conteudo__titulo { background: linear-gradient(90deg, #00ff41, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .conteudo__container__secao1 { background: rgba(0, 15, 0, 0.8); border-bottom-color: rgba(0, 255, 65, 0.15); }
+        .conteudo__container__secao2 { background: rgba(0, 15, 0, 0.8); border-bottom-color: rgba(0, 255, 65, 0.15); }
+        .conteudo__container__secao2 .conteudo__titulo { color: #00ff41; }
+        .conteudo__container__secao4 { background: rgba(0, 15, 0, 0.8); border-bottom-color: rgba(0, 255, 65, 0.15); }
+        .conteudo__container__secao4 .conteudo__titulo { color: #00ff41; }
+        .conteudo__container__secao4 p { color: rgba(0, 255, 65, 0.75); }
+        .conteudo__container__secao4 ul li { color: rgba(0, 255, 65, 0.8); }
+        footer { background: rgba(0, 15, 0, 0.85); color: rgba(0, 255, 65, 0.6); }
+        .timeline__ano { color: #00ff41; }
+        .timeline__titulo { color: #f0f0f0; }
+        .timeline__texto { color: rgba(0, 255, 65, 0.75); }
+        .timeline__conteudo { background: rgba(0, 10, 0, 0.8); border-color: rgba(0, 255, 65, 0.2); }
+        .timeline__icone { border-color: #00ff41; box-shadow: 0 0 10px rgba(0, 255, 65, 0.4); }
+        .timeline::before { background: linear-gradient(to bottom, #00ff41, #003300); }
+        #matrix { opacity: 0.12; }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="cabecalho">
+        <ul class="cabecalho_conteudo">
+            <li class="cabecalho_conteudo_item"><a href="01main.html">Início</a></li>
+            <li class="cabecalho_conteudo_item cabecalho_dropdown">
+                <a href="#">Linha do Tempo ▾</a>
+                <ul class="dropdown__menu">
+                    <li><a href="02arpanet.html">1969 — ARPANET</a></li>
+                    <li><a href="11email.html">1971 — Primeiro E-mail</a></li>
+                    <li><a href="03tcpip.html">1983 — TCP/IP</a></li>
+                    <li><a href="04www.html">1991 — World Wide Web</a></li>
+                    <li><a href="05navegadores.html">1993 — Era dos Navegadores</a></li>
+                    <li><a href="12google.html">1998 — Google & Busca</a></li>
+                    <li><a href="06web20.html">2004 — Web 2.0</a></li>
+                    <li><a href="07eramobile.html">2007 — Era Mobile</a></li>
+                    <li><a href="08web3.0.html">2020 — Web 3.0</a></li>
+                    <li><a href="09IA.html">2023+ — Inteligência Artificial</a></li>
+                    <li><a href="10rate.html">Avalie Meu Site!</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="timeline-horizontal-wrapper">
+        <div class="timeline-horizontal" id="timelineHorizontal">
+            <a href="02arpanet.html" class="th-node" data-era="0" data-year="1969" data-name="ARPANET">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1969</span>
+                <span class="th-node-name">ARPANET</span>
+            </a>
+            <a href="11email.html" class="th-node" data-era="1" data-year="1971" data-name="E-mail">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1971</span>
+                <span class="th-node-name">E-mail</span>
+            </a>
+            <a href="03tcpip.html" class="th-node" data-era="2" data-year="1983" data-name="TCP/IP">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1983</span>
+                <span class="th-node-name">TCP/IP</span>
+            </a>
+            <a href="04www.html" class="th-node" data-era="3" data-year="1991" data-name="WWW">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1991</span>
+                <span class="th-node-name">WWW</span>
+            </a>
+            <a href="05navegadores.html" class="th-node" data-era="4" data-year="1993" data-name="Navegadores">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1993</span>
+                <span class="th-node-name">Navegadores</span>
+            </a>
+            <a href="12google.html" class="th-node" data-era="5" data-year="1998" data-name="Google">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1998</span>
+                <span class="th-node-name">Google</span>
+            </a>
+            <a href="06web20.html" class="th-node" data-era="6" data-year="2004" data-name="Web 2.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2004</span>
+                <span class="th-node-name">Web 2.0</span>
+            </a>
+            <a href="07eramobile.html" class="th-node" data-era="7" data-year="2007" data-name="Mobile">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2007</span>
+                <span class="th-node-name">Mobile</span>
+            </a>
+            <a href="08web3.0.html" class="th-node" data-era="8" data-year="2020" data-name="Web 3.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2020</span>
+                <span class="th-node-name">Web 3.0</span>
+            </a>
+            <a href="09IA.html" class="th-node" data-era="9" data-year="2023" data-name="IA">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2023</span>
+                <span class="th-node-name">IA</span>
+            </a>
+        </div>
+        <div class="th-progress" id="thProgress"></div>
+    </div>
+
+    <main class="conteudo">
+
+        <div class="conteudo__container__secao1">
+            <h1 class="conteudo__titulo">ARPANET — O Primeiro Pulso da Internet</h1>
+            <h3 class="conteudo__subtitulo"><i>"1969 · O dia em que dois computadores se falaram pela primeira vez"</i></h3>
+        </div>
+
+        <div class="conteudo__container__secao2">
+            <div class="conteudo__texto">
+                <h2 class="conteudo__titulo">O que foi a ARPANET?</h2>
+                <p class="conteudo__paragrafo">A ARPANET (Advanced Research Projects Agency Network) foi a primeira rede de computadores do mundo, criada pelo Departamento de Defesa dos Estados Unidos. Seu objetivo original não era conectar pessoas — era garantir que informações militares sobrevivessem a um ataque nuclear, distribuindo os dados por múltiplos caminhos em vez de um único ponto central.</p>
+
+                <h2 class="conteudo__titulo">O primeiro Olá da Internet</h2>
+                <p class="conteudo__paragrafo">Em 29 de outubro de 1969, o estudante Charley Kline tentou enviar a palavra "login" do computador da UCLA para o Stanford Research Institute. O sistema travou após as letras "l" e "o". A primeira mensagem transmitida pela internet foi, sem querer, "lo" — como se a rede dissesse "olá" ao mundo.</p>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">Como Funcionava?</h2>
+            <p style="color:rgba(0,255,65,0.75); text-align:center;">Três pontos de forma acessível</p>
+            <div class="conteudo__lista">
+                <ul>
+                    <li><p>📦 Comutação de pacotes — Em vez de enviar uma mensagem inteira de uma vez, a ARPANET a dividia em pequenos "pacotes" que viajavam por caminhos diferentes e se remontavam no destino. Revolucionário para a época.</p></li>
+                    <li><p>🖥️ IMP (Interface Message Processor) — Era o "roteador" da época. Cada universidade conectada tinha um IMP, responsável por enviar e receber os pacotes de dados.</p></li>
+                    <li><p>🔗 Nós da rede — Em 1969 eram apenas 4 computadores conectados: UCLA, Stanford, UC Santa Barbara e University of Utah. Em 1971 já eram 23.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">🗺️ Mapa da ARPANET — 4 Nós Originais</h2>
+            <p style="color:rgba(0,255,65,0.75); text-align:center;">Clique em um nó para enviar um pacote</p>
+            <div class="arpanet-map" id="arpanetMap">
+                <svg viewBox="0 0 500 350" style="width:100%;max-width:500px;display:block;margin:0 auto;background:rgba(0,5,0,0.5);border-radius:12px;border:1px solid rgba(0,255,65,0.2);">
+                    <defs>
+                        <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#00ff41" stop-opacity="0.8"/>
+                            <stop offset="100%" stop-color="#00ff41" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <line x1="80" y1="100" x2="250" y2="80" stroke="rgba(0,255,65,0.3)" stroke-width="2"/>
+                    <line x1="80" y1="100" x2="120" y2="250" stroke="rgba(0,255,65,0.3)" stroke-width="2"/>
+                    <line x1="250" y1="80" x2="400" y2="120" stroke="rgba(0,255,65,0.3)" stroke-width="2"/>
+                    <line x1="250" y1="80" x2="120" y2="250" stroke="rgba(0,255,65,0.3)" stroke-width="2"/>
+                    <line x1="120" y1="250" x2="400" y2="120" stroke="rgba(0,255,65,0.3)" stroke-width="2"/>
+                    <circle cx="250" cy="80" r="18" fill="rgba(0,255,65,0.1)" stroke="#00ff41" stroke-width="2" class="arpanet-node" data-node="sri" style="cursor:pointer"/>
+                    <text x="250" y="50" text-anchor="middle" fill="#00ff41" font-size="10" font-family="monospace">SRI</text>
+                    <text x="250" y="42" text-anchor="middle" fill="rgba(0,255,65,0.5)" font-size="8" font-family="monospace">Stanford</text>
+                    <circle cx="80" cy="100" r="18" fill="rgba(0,255,65,0.1)" stroke="#00ff41" stroke-width="2" class="arpanet-node" data-node="ucla" style="cursor:pointer"/>
+                    <text x="80" y="130" text-anchor="middle" fill="#00ff41" font-size="10" font-family="monospace">UCLA</text>
+                    <circle cx="120" cy="250" r="18" fill="rgba(0,255,65,0.1)" stroke="#00ff41" stroke-width="2" class="arpanet-node" data-node="ucsb" style="cursor:pointer"/>
+                    <text x="120" y="280" text-anchor="middle" fill="#00ff41" font-size="10" font-family="monospace">UCSB</text>
+                    <circle cx="400" cy="120" r="18" fill="rgba(0,255,65,0.1)" stroke="#00ff41" stroke-width="2" class="arpanet-node" data-node="utah" style="cursor:pointer"/>
+                    <text x="400" y="150" text-anchor="middle" fill="#00ff41" font-size="10" font-family="monospace">Utah</text>
+                    <circle id="pingDot" cx="-50" cy="-50" r="5" fill="#00ff41" opacity="0">
+                        <animate attributeName="opacity" values="1;0" dur="0.5s" begin="indefinite" fill="freeze" id="pingAnim"/>
+                    </circle>
+                </svg>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">💻 Terminal ARPANET</h2>
+            <p style="color:rgba(0,255,65,0.75); text-align:center;">Digite comandos como <strong>ping UCLA</strong> ou <strong>connect SRI</strong></p>
+            <div class="arpanet-terminal">
+                <div class="terminal-header">ARPANET — TERMINAL v1.0</div>
+                <div class="terminal-body" id="terminalBody">
+                    <div>> ARPANET online. 4 nós ativos.</div>
+                    <div>> Comandos: ping [nó], connect [nó], status, help</div>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">$</span>
+                    <input type="text" id="terminalInput" class="terminal-input" placeholder="digite um comando..." autofocus>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <strong>Copyright &copy; 2026 - Criado por Alexandre e André.</strong>
+    </footer>
+
+    <script>
+
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drops.forEach((y, i) => {
+                const char = Math.random() > 0.5 ? '1' : '0';
+                const x = i * fontSize;
+                ctx.fillStyle = Math.random() > 0.95 ? '#ffffff' : '#00ff41';
+                ctx.font = fontSize + 'px monospace';
+                ctx.fillText(char, x, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 40);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('visivel'); }, i * 150); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.timeline__item').forEach(item => { observer.observe(item); });
+
+        // ── Mapa SVG — Ping nos nós ──
+        const nodeCoords = { ucla: [80, 100], sri: [250, 80], ucsb: [120, 250], utah: [400, 120] };
+        const pingDot = document.getElementById('pingDot');
+
+        document.querySelectorAll('.arpanet-node').forEach(node => {
+            node.addEventListener('click', function() {
+                const target = this.dataset.node;
+                const [tx, ty] = nodeCoords[target];
+                pingDot.setAttribute('cx', tx);
+                pingDot.setAttribute('cy', ty);
+                const anim = document.getElementById('pingAnim');
+                anim.beginElement();
+
+                const termBody = document.getElementById('terminalBody');
+                const time = new Date().toLocaleTimeString('pt-BR');
+                const msgs = [
+                    `> PING ${target.toUpperCase()} (${tx}.${ty}.0.1): 56 bytes de dados`,
+                    `> Resposta de ${target.toUpperCase()}: bytes=56 tempo=12ms TTL=64`,
+                    `> Resposta de ${target.toUpperCase()}: bytes=56 tempo=14ms TTL=64`,
+                    `> Resposta de ${target.toUpperCase()}: bytes=56 tempo=11ms TTL=64`,
+                    `> --- Estatísticas do ${target.toUpperCase()} ---`,
+                    `> Pacotes: enviados=4, recebidos=4, perdidos=0 (0% perda)`,
+                    `> [${time}] Conexão estabelecida com ${target.toUpperCase()}`
+                ];
+                msgs.forEach(m => {
+                    const div = document.createElement('div');
+                    div.textContent = m;
+                    termBody.appendChild(div);
+                });
+                termBody.scrollTop = termBody.scrollHeight;
+            });
+        });
+
+        // ── Terminal Fake ──
+        const terminalInput = document.getElementById('terminalInput');
+        const terminalBody = document.getElementById('terminalBody');
+
+        terminalInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const cmd = this.value.trim().toLowerCase();
+                this.value = '';
+                const inputDiv = document.createElement('div');
+                inputDiv.textContent = '$ ' + cmd;
+                terminalBody.appendChild(inputDiv);
+
+                const respond = (msg) => {
+                    const div = document.createElement('div');
+                    div.textContent = '> ' + msg;
+                    terminalBody.appendChild(div);
+                };
+
+                if (cmd === 'help') {
+                    respond('Comandos disponíveis:');
+                    respond('  ping [nó]  — testar conexão com um nó');
+                    respond('  connect [nó] — conectar a um nó');
+                    respond('  status     — status da rede');
+                    respond('  nós: ucla, sri, ucsb, utah');
+                } else if (cmd.startsWith('ping ')) {
+                    const target = cmd.replace('ping ', '').trim().toUpperCase();
+                    if (nodeCoords[target.toLowerCase()]) {
+                        const [tx, ty] = nodeCoords[target.toLowerCase()];
+                        pingDot.setAttribute('cx', tx);
+                        pingDot.setAttribute('cy', ty);
+                        document.getElementById('pingAnim').beginElement();
+                        respond(`Pingando ${target}...`);
+                        respond(`Resposta de ${target}: bytes=56 tempo=8ms`);
+                        respond(`Resposta de ${target}: bytes=56 tempo=10ms`);
+                        respond(`Resposta de ${target}: bytes=56 tempo=7ms`);
+                        respond(`Pacotes: enviados=3, recebidos=3, perdidos=0`);
+                    } else {
+                        respond(`ERRO: Nó "${target}" não encontrado.`);
+                    }
+                } else if (cmd.startsWith('connect ')) {
+                    const target = cmd.replace('connect ', '').trim().toUpperCase();
+                    if (nodeCoords[target.toLowerCase()]) {
+                        respond(`Conectando a ${target}...`);
+                        respond(`[${new Date().toLocaleTimeString('pt-BR')}] Conexão estabelecida com ${target}.`);
+                    } else {
+                        respond(`ERRO: Nó "${target}" não encontrado.`);
+                    }
+                } else if (cmd === 'status') {
+                    respond('=== STATUS DA REDE ARPANET ===');
+                    respond('Nós ativos: 4/4');
+                    respond('  UCLA  — online    (1969)');
+                    respond('  SRI   — online    (1969)');
+                    respond('  UCSB  — online    (1969)');
+                    respond('  Utah  — online    (1969)');
+                    respond('Latência média: 12ms');
+                    respond('Pacotes perdidos: 0%');
+                } else if (cmd === 'clear') {
+                    terminalBody.innerHTML = '';
+                    respond('Terminal limpo.');
+                } else if (cmd === '') {
+                    // nothing
+                } else {
+                    respond(`Comando não reconhecido: "${cmd}". Digite "help" para ajuda.`);
+                }
+
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+            }
+        });
+
+        // ── TIMELINE HORIZONTAL — SCROLL PROGRESSIVO ──
+        const thNodes = document.querySelectorAll('.th-node');
+        const timelineItems = document.querySelectorAll('.timeline__item');
+        const progressBar = document.getElementById('thProgress');
+
+        function updateHorizontalTimeline() {
+            let maxVisible = -1;
+            timelineItems.forEach((item, i) => {
+                const rect = item.getBoundingClientRect();
+                const threshold = window.innerHeight * 0.75;
+                if (rect.top < threshold) {
+                    maxVisible = i;
+                }
+            });
+
+            thNodes.forEach((node, i) => {
+                node.classList.toggle('active', i <= maxVisible);
+            });
+
+            const total = thNodes.length;
+            const pct = total > 1 ? ((maxVisible + 1) / total) * 100 : 0;
+            progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+        }
+
+        window.addEventListener('scroll', updateHorizontalTimeline);
+        window.addEventListener('resize', updateHorizontalTimeline);
+        updateHorizontalTimeline();
+    </script>
+
+</body>
+</html>

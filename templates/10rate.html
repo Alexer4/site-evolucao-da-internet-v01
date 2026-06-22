@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Evolução da Internet — Velocidade</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23000d1a' stroke='%2300aaff' stroke-width='2'/%3E%3Cellipse cx='32' cy='32' rx='15' ry='30' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='10' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cline x1='32' y1='2' x2='32' y2='62' stroke='%2300aaff' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='44' cy='18' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='14' cy='38' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='48' cy='42' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='32' cy='12' r='2.5' fill='%23ffffff'/%3E%3Cline x1='20' y1='20' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='20' y1='20' x2='14' y2='38' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='44' y1='18' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='14' y1='38' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='20' y2='20' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E">
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="cabecalho">
+        <ul class="cabecalho_conteudo">
+            <li class="cabecalho_conteudo_item"><a href="01main.html">Início</a></li>
+            <li class="cabecalho_conteudo_item cabecalho_dropdown">
+                <a href="#">Linha do Tempo ▾</a>
+                <ul class="dropdown__menu">
+                    <li><a href="02arpanet.html">1969 — ARPANET</a></li>
+                    <li><a href="11email.html">1971 — Primeiro E-mail</a></li>
+                    <li><a href="03tcpip.html">1983 — TCP/IP</a></li>
+                    <li><a href="04www.html">1991 — World Wide Web</a></li>
+                    <li><a href="05navegadores.html">1993 — Era dos Navegadores</a></li>
+                    <li><a href="12google.html">1998 — Google & Busca</a></li>
+                    <li><a href="06web20.html">2004 — Web 2.0</a></li>
+                    <li><a href="07eramobile.html">2007 — Era Mobile</a></li>
+                    <li><a href="08web3.0.html">2020 — Web 3.0</a></li>
+                    <li><a href="09IA.html">2023+ — Inteligência Artificial</a></li>
+                    <li><a href="10rate.html">Avalie Meu Site!</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="timeline-horizontal-wrapper">
+        <div class="timeline-horizontal" id="timelineHorizontal">
+            <a href="02arpanet.html" class="th-node" data-era="0" data-year="1969" data-name="ARPANET">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1969</span>
+                <span class="th-node-name">ARPANET</span>
+            </a>
+            <a href="11email.html" class="th-node" data-era="1" data-year="1971" data-name="E-mail">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1971</span>
+                <span class="th-node-name">E-mail</span>
+            </a>
+            <a href="03tcpip.html" class="th-node" data-era="2" data-year="1983" data-name="TCP/IP">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1983</span>
+                <span class="th-node-name">TCP/IP</span>
+            </a>
+            <a href="04www.html" class="th-node" data-era="3" data-year="1991" data-name="WWW">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1991</span>
+                <span class="th-node-name">WWW</span>
+            </a>
+            <a href="05navegadores.html" class="th-node" data-era="4" data-year="1993" data-name="Navegadores">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1993</span>
+                <span class="th-node-name">Navegadores</span>
+            </a>
+            <a href="12google.html" class="th-node" data-era="5" data-year="1998" data-name="Google">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1998</span>
+                <span class="th-node-name">Google</span>
+            </a>
+            <a href="06web20.html" class="th-node" data-era="6" data-year="2004" data-name="Web 2.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2004</span>
+                <span class="th-node-name">Web 2.0</span>
+            </a>
+            <a href="07eramobile.html" class="th-node" data-era="7" data-year="2007" data-name="Mobile">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2007</span>
+                <span class="th-node-name">Mobile</span>
+            </a>
+            <a href="08web3.0.html" class="th-node" data-era="8" data-year="2020" data-name="Web 3.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2020</span>
+                <span class="th-node-name">Web 3.0</span>
+            </a>
+            <a href="09IA.html" class="th-node" data-era="9" data-year="2023" data-name="IA">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2023</span>
+                <span class="th-node-name">IA</span>
+            </a>
+        </div>
+        <div class="th-progress" id="thProgress"></div>
+    </div>
+
+    <main class="conteudo">
+
+        <div class="conteudo__container__secao1">
+            <h1 class="conteudo__titulo">Velocidade da Internet — Simulador de Download</h1>
+            <h3 class="conteudo__subtitulo"><i>"De 56k a 5G: quanto tempo leva para baixar um arquivo em cada era?"</i></h3>
+            <p class="conteudo__paragrafo">Já imaginou quanto tempo levaria para baixar um filme em 1995 com discada? Ou um jogo em 2005 com ADSL? Este simulador recria a experiência de download em cada era da internet, incluindo o som inconfundível da conexão discada.</p>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">📥 Simulador de Download</h2>
+            <div class="download-sim">
+                <div class="download-selects">
+                    <div class="download-select-group">
+                        <label>🌐 Era da Conexão</label>
+                        <select id="eraSelect" class="download-select">
+                            <option value="56">Dial-up 56k (1995)</option>
+                            <option value="512">ADSL 512k (2003)</option>
+                            <option value="10240">ADSL2 10Mb (2008)</option>
+                            <option value="102400">Fibra 100Mb (2015)</option>
+                            <option value="1048576">5G 1Gb (2023+)</option>
+                        </select>
+                        <button id="dialupSoundBtn" class="dialup-sound-btn">🔊 Som Dial-up</button>
+                    </div>
+                    <div class="download-select-group">
+                        <label>📁 Arquivo</label>
+                        <select id="fileSelect" class="download-select">
+                            <option value="5">Música (5 MB)</option>
+                            <option value="700">Filme (700 MB)</option>
+                            <option value="51200">Jogo (50 GB)</option>
+                        </select>
+                    </div>
+                    <div class="download-select-group" style="display:flex;align-items:flex-end;">
+                        <button id="downloadBtn" class="email-btn" style="width:100%;">⬇️ Baixar</button>
+                    </div>
+                </div>
+                <div class="download-progress-wrap">
+                    <div class="download-progress-label">
+                        <span id="downloadFileName">Música (5 MB)</span>
+                        <span id="downloadProgressText">0%</span>
+                    </div>
+                    <div class="download-progress-bar">
+                        <div class="download-progress-fill" id="downloadProgressFill"></div>
+                    </div>
+                </div>
+                <div class="download-status" id="downloadStatus">Pronto para baixar</div>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">🏁 Corrida: Todas as Eras Simultaneamente</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Veja a diferença de velocidade entre todas as conexões baixando o mesmo arquivo</p>
+            <div class="download-race" id="downloadRace">
+                <div class="download-race-title">Baixando: <span id="raceFileName">Música (5 MB)</span></div>
+                <button id="raceStartBtn" class="email-btn" style="margin-bottom:0.75rem;width:100%;">🏁 Iniciar Corrida</button>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">A Evolução da Velocidade</h2>
+            <p class="conteudo__paragrafo">Em 1995, baixar uma música de 5 MB levava cerca de 12 minutos na discada. Hoje, com fibra óptica de 100 Mb, o mesmo arquivo baixa em menos de 1 segundo. Um filme em 4K (50 GB) que levaria 85 dias em 1995 agora leva cerca de 7 minutos. A evolução da velocidade de conexão é uma das maiores revoluções silenciosas da era digital.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <strong>Copyright &copy; 2026 - Criado por Alexandre e André.</strong>
+    </footer>
+
+    <script>
+
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drops.forEach((y, i) => {
+                const char = Math.random() > 0.5 ? '1' : '0';
+                const x = i * fontSize;
+                ctx.fillStyle = Math.random() > 0.95 ? '#ffffff' : '#00aaff';
+                ctx.font = fontSize + 'px monospace';
+                ctx.fillText(char, x, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 40);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('visivel'); }, i * 150); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.timeline__item').forEach(item => { observer.observe(item); });
+
+        // ── Download Simulator ──
+        let downloadInterval = null;
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            if (downloadInterval) {
+                clearInterval(downloadInterval);
+                downloadInterval = null;
+            }
+
+            const eraKbps = parseInt(document.getElementById('eraSelect').value);
+            const fileMB = parseInt(document.getElementById('fileSelect').value);
+            const fileSizeBits = fileMB * 8 * 1024 * 1024; // bits
+            const speedBps = eraKbps * 1024; // bits per second
+            const totalSeconds = fileSizeBits / speedBps;
+
+            const fileName = document.getElementById('fileSelect').selectedOptions[0].text;
+            document.getElementById('downloadFileName').textContent = fileName;
+
+            const fill = document.getElementById('downloadProgressFill');
+            const text = document.getElementById('downloadProgressText');
+            const status = document.getElementById('downloadStatus');
+            let progress = 0;
+            const startTime = Date.now();
+
+            status.textContent = `⬇️ Baixando... (${(speedBps/1024/8).toFixed(1)} MB/s — estimado ${totalSeconds.toFixed(1)}s)`;
+
+            downloadInterval = setInterval(() => {
+                const elapsed = (Date.now() - startTime) / 1000;
+                progress = Math.min(100, (elapsed / totalSeconds) * 100);
+                fill.style.width = progress + '%';
+                text.textContent = progress.toFixed(1) + '%';
+
+                if (progress >= 100) {
+                    clearInterval(downloadInterval);
+                    downloadInterval = null;
+                    fill.style.width = '100%';
+                    text.textContent = '100%';
+                    status.textContent = `✅ Download concluído! (${elapsed.toFixed(1)}s)`;
+                }
+            }, 50);
+        });
+
+        // ── Dial-up Sound ──
+        let audioCtx = null;
+        let dialupOscillators = [];
+
+        document.getElementById('dialupSoundBtn').addEventListener('click', function() {
+            if (dialupOscillators.length > 0) {
+                dialupOscillators.forEach(o => { try { o.stop(); } catch(e) {} });
+                dialupOscillators = [];
+                if (audioCtx && audioCtx.state !== 'closed') audioCtx.close();
+                return;
+            }
+
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const freqSeq = [300, 1100, 2100, 400, 1600, 600, 1800, 800, 2000];
+
+            function playTone(freq, duration, startTime) {
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, audioCtx.currentTime + startTime);
+                gain.gain.setValueAtTime(0.15, audioCtx.currentTime + startTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + startTime + duration);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start(audioCtx.currentTime + startTime);
+                osc.stop(audioCtx.currentTime + startTime + duration);
+                dialupOscillators.push(osc);
+            }
+
+            let time = 0;
+            freqSeq.forEach((freq, i) => {
+                playTone(freq, 0.15, time);
+                time += 0.12;
+                playTone(freq + 50, 0.15, time);
+                time += 0.12;
+            });
+
+            setTimeout(() => {
+                dialupOscillators = [];
+            }, time * 1000 + 500);
+        });
+
+        // ── Speed Race ──
+        const raceEras = [
+            { name: 'Dial-up 56k', kbps: 56, color: '#ff6b6b' },
+            { name: 'ADSL 512k', kbps: 512, color: '#f39c12' },
+            { name: 'ADSL2 10Mb', kbps: 10240, color: '#3498db' },
+            { name: 'Fibra 100Mb', kbps: 102400, color: '#2ecc71' },
+            { name: '5G 1Gb', kbps: 1048576, color: '#9b59b6' }
+        ];
+
+        const raceContainer = document.getElementById('downloadRace');
+        let raceInterval = null;
+
+        document.getElementById('raceStartBtn').addEventListener('click', function() {
+            if (raceInterval) {
+                clearInterval(raceInterval);
+                raceInterval = null;
+            }
+
+            const fileMB = parseInt(document.getElementById('fileSelect').value);
+            const fileName = document.getElementById('fileSelect').selectedOptions[0].text;
+            document.getElementById('raceFileName').textContent = fileName;
+            const fileSizeBits = fileMB * 8 * 1024 * 1024;
+
+            // Build race UI
+            raceContainer.innerHTML = `
+                <div class="download-race-title">Baixando: <span id="raceFileName">${fileName}</span></div>
+                <button id="raceStartBtn" class="email-btn" style="margin-bottom:0.75rem;width:100%;">🏁 Iniciar Corrida</button>
+            `;
+
+            raceEras.forEach((era, i) => {
+                const row = document.createElement('div');
+                row.className = 'download-race-row';
+                row.innerHTML = `
+                    <span class="download-race-label">${era.name}</span>
+                    <div class="download-race-bar">
+                        <div class="download-race-fill" id="raceFill${i}" style="background:${era.color};"></div>
+                    </div>
+                    <span class="download-race-pct" id="racePct${i}">0%</span>
+                `;
+                raceContainer.appendChild(row);
+            });
+
+            const raceStartBtn = document.getElementById('raceStartBtn');
+            raceStartBtn.addEventListener('click', startRace);
+
+            function startRace() {
+                let raceProg = raceEras.map(() => 0);
+                const startTime = Date.now();
+                const totalTimes = raceEras.map(era => fileSizeBits / (era.kbps * 1024));
+
+                raceInterval = setInterval(() => {
+                    const elapsed = (Date.now() - startTime) / 1000;
+                    let allDone = true;
+
+                    raceProg.forEach((_, i) => {
+                        const pct = Math.min(100, (elapsed / totalTimes[i]) * 100);
+                        raceProg[i] = pct;
+                        document.getElementById('raceFill' + i).style.width = pct + '%';
+                        document.getElementById('racePct' + i).textContent = pct.toFixed(1) + '%';
+                        if (pct < 100) allDone = false;
+                    });
+
+                    if (allDone) {
+                        clearInterval(raceInterval);
+                        raceInterval = null;
+                    }
+                }, 50);
+            }
+
+            startRace();
+        });
+
+        // ── TIMELINE HORIZONTAL — SCROLL PROGRESSIVO ──
+        const thNodes = document.querySelectorAll('.th-node');
+        const timelineItems = document.querySelectorAll('.timeline__item');
+        const progressBar = document.getElementById('thProgress');
+
+        function updateHorizontalTimeline() {
+            let maxVisible = -1;
+            timelineItems.forEach((item, i) => {
+                const rect = item.getBoundingClientRect();
+                const threshold = window.innerHeight * 0.75;
+                if (rect.top < threshold) {
+                    maxVisible = i;
+                }
+            });
+
+            thNodes.forEach((node, i) => {
+                node.classList.toggle('active', i <= maxVisible);
+            });
+
+            const total = thNodes.length;
+            const pct = total > 1 ? ((maxVisible + 1) / total) * 100 : 0;
+            progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+        }
+
+        window.addEventListener('scroll', updateHorizontalTimeline);
+        window.addEventListener('resize', updateHorizontalTimeline);
+        updateHorizontalTimeline();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Evolução da Internet — TCP/IP</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23000d1a' stroke='%2300aaff' stroke-width='2'/%3E%3Cellipse cx='32' cy='32' rx='15' ry='30' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='10' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cline x1='32' y1='2' x2='32' y2='62' stroke='%2300aaff' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='44' cy='18' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='14' cy='38' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='48' cy='42' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='32' cy='12' r='2.5' fill='%23ffffff'/%3E%3Cline x1='20' y1='20' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='20' y1='20' x2='14' y2='38' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='44' y1='18' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='14' y1='38' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='20' y2='20' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E">
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="cabecalho">
+        <ul class="cabecalho_conteudo">
+            <li class="cabecalho_conteudo_item"><a href="01main.html">Início</a></li>
+            <li class="cabecalho_conteudo_item cabecalho_dropdown">
+                <a href="#">Linha do Tempo ▾</a>
+                <ul class="dropdown__menu">
+                    <li><a href="02arpanet.html">1969 — ARPANET</a></li>
+                    <li><a href="11email.html">1971 — Primeiro E-mail</a></li>
+                    <li><a href="03tcpip.html">1983 — TCP/IP</a></li>
+                    <li><a href="04www.html">1991 — World Wide Web</a></li>
+                    <li><a href="05navegadores.html">1993 — Era dos Navegadores</a></li>
+                    <li><a href="12google.html">1998 — Google & Busca</a></li>
+                    <li><a href="06web20.html">2004 — Web 2.0</a></li>
+                    <li><a href="07eramobile.html">2007 — Era Mobile</a></li>
+                    <li><a href="08web3.0.html">2020 — Web 3.0</a></li>
+                    <li><a href="09IA.html">2023+ — Inteligência Artificial</a></li>
+                    <li><a href="10rate.html">Avalie Meu Site!</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="timeline-horizontal-wrapper">
+        <div class="timeline-horizontal" id="timelineHorizontal">
+            <a href="02arpanet.html" class="th-node" data-era="0" data-year="1969" data-name="ARPANET">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1969</span>
+                <span class="th-node-name">ARPANET</span>
+            </a>
+            <a href="11email.html" class="th-node" data-era="1" data-year="1971" data-name="E-mail">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1971</span>
+                <span class="th-node-name">E-mail</span>
+            </a>
+            <a href="03tcpip.html" class="th-node" data-era="2" data-year="1983" data-name="TCP/IP">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1983</span>
+                <span class="th-node-name">TCP/IP</span>
+            </a>
+            <a href="04www.html" class="th-node" data-era="3" data-year="1991" data-name="WWW">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1991</span>
+                <span class="th-node-name">WWW</span>
+            </a>
+            <a href="05navegadores.html" class="th-node" data-era="4" data-year="1993" data-name="Navegadores">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1993</span>
+                <span class="th-node-name">Navegadores</span>
+            </a>
+            <a href="12google.html" class="th-node" data-era="5" data-year="1998" data-name="Google">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1998</span>
+                <span class="th-node-name">Google</span>
+            </a>
+            <a href="06web20.html" class="th-node" data-era="6" data-year="2004" data-name="Web 2.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2004</span>
+                <span class="th-node-name">Web 2.0</span>
+            </a>
+            <a href="07eramobile.html" class="th-node" data-era="7" data-year="2007" data-name="Mobile">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2007</span>
+                <span class="th-node-name">Mobile</span>
+            </a>
+            <a href="08web3.0.html" class="th-node" data-era="8" data-year="2020" data-name="Web 3.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2020</span>
+                <span class="th-node-name">Web 3.0</span>
+            </a>
+            <a href="09IA.html" class="th-node" data-era="9" data-year="2023" data-name="IA">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2023</span>
+                <span class="th-node-name">IA</span>
+            </a>
+        </div>
+        <div class="th-progress" id="thProgress"></div>
+    </div>
+
+    <main class="conteudo">
+
+        <div class="conteudo__container__secao1">
+            <h1 class="conteudo__titulo">TCP/IP — A Linguagem da Internet</h1>
+            <h3 class="conteudo__subtitulo"><i>"1983 · O protocolo que uniu todas as redes em uma só"</i></h3>
+            <p class="conteudo__paragrafo">O TCP/IP é o conjunto de protocolos que permite a comunicação entre computadores em rede. Desenvolvido por Vint Cerf e Bob Kahn nos anos 1970, foi adotado como padrão em 1º de janeiro de 1983 — data considerada o "nascimento oficial" da internet moderna.</p>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">📦 Animação: Um Pacote Atravessa a Rede</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Clique em "Enviar Pacote" para ver como os dados são fragmentados, transmitidos e remontados</p>
+            <div class="tcpip-canvas-wrap">
+                <canvas id="tcpipCanvas"></canvas>
+            </div>
+            <div style="text-align:center;">
+                <button id="sendPacketBtn" class="email-btn">📨 Enviar Pacote</button>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">🧩 As 4 Camadas do TCP/IP</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Clique em cada camada para expandir e ver os protocolos</p>
+            <div class="tcpip-layers" id="tcpipLayers">
+                <div class="tcpip-layer" data-layer="4">
+                    <div class="tcpip-layer-header">
+                        <span><span class="layer-num">CAMADA 4</span> — Aplicação</span>
+                        <span class="layer-icon">🖥️</span>
+                    </div>
+                    <div class="tcpip-layer-content">
+                        Interface com o usuário. Protocolos como HTTP (web), SMTP (e-mail), FTP (arquivos) e DNS (nomes) operam aqui. É a camada que você "vê".
+                        <div class="protocol-list">
+                            <span class="protocol-tag">HTTP</span>
+                            <span class="protocol-tag">HTTPS</span>
+                            <span class="protocol-tag">SMTP</span>
+                            <span class="protocol-tag">FTP</span>
+                            <span class="protocol-tag">DNS</span>
+                            <span class="protocol-tag">SSH</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tcpip-layer" data-layer="3">
+                    <div class="tcpip-layer-header">
+                        <span><span class="layer-num">CAMADA 3</span> — Transporte</span>
+                        <span class="layer-icon">📦</span>
+                    </div>
+                    <div class="tcpip-layer-content">
+                        Garante que os dados cheguem completos e na ordem certa. O TCP estabelece conexão e confirma recebimento; o UDP é mais rápido mas sem garantia.
+                        <div class="protocol-list">
+                            <span class="protocol-tag">TCP</span>
+                            <span class="protocol-tag">UDP</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tcpip-layer" data-layer="2">
+                    <div class="tcpip-layer-header">
+                        <span><span class="layer-num">CAMADA 2</span> — Rede / Internet</span>
+                        <span class="layer-icon">🌐</span>
+                    </div>
+                    <div class="tcpip-layer-content">
+                        Roteia os pacotes entre redes diferentes. O protocolo IP define endereços e encontra o melhor caminho. Roteadores operam aqui.
+                        <div class="protocol-list">
+                            <span class="protocol-tag">IP</span>
+                            <span class="protocol-tag">ICMP</span>
+                            <span class="protocol-tag">ARP</span>
+                            <span class="protocol-tag">RIP</span>
+                            <span class="protocol-tag">OSPF</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tcpip-layer" data-layer="1">
+                    <div class="tcpip-layer-header">
+                        <span><span class="layer-num">CAMADA 1</span> — Interface de Rede</span>
+                        <span class="layer-icon">🔌</span>
+                    </div>
+                    <div class="tcpip-layer-content">
+                        A camada física e de enlace. Cabos, placas de rede, Wi-Fi. Envia os bits brutos pelo meio físico entre dispositivos na mesma rede.
+                        <div class="protocol-list">
+                            <span class="protocol-tag">Ethernet</span>
+                            <span class="protocol-tag">Wi-Fi</span>
+                            <span class="protocol-tag">PPP</span>
+                            <span class="protocol-tag">MAC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <strong>Copyright &copy; 2026 - Criado por Alexandre e André.</strong>
+    </footer>
+
+    <script>
+
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drops.forEach((y, i) => {
+                const char = Math.random() > 0.5 ? '1' : '0';
+                const x = i * fontSize;
+                ctx.fillStyle = Math.random() > 0.95 ? '#ffffff' : '#00aaff';
+                ctx.font = fontSize + 'px monospace';
+                ctx.fillText(char, x, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 40);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('visivel'); }, i * 150); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.timeline__item').forEach(item => { observer.observe(item); });
+
+        // ── TCP/IP Layers ──
+        document.querySelectorAll('.tcpip-layer').forEach(layer => {
+            layer.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // ── Packet Animation ──
+        const pktCanvas = document.getElementById('tcpipCanvas');
+        const pCtx = pktCanvas.getContext('2d');
+        let animId = null;
+        let packetX = 0, packetY = 0;
+        let fragments = [];
+        let phase = 0; // 0=idle, 1=split, 2=travel, 3=reassemble
+
+        function resizePkt() {
+            const rect = pktCanvas.getBoundingClientRect();
+            pktCanvas.width = rect.width || 600;
+            pktCanvas.height = rect.height || 200;
+        }
+        resizePkt();
+        window.addEventListener('resize', resizePkt);
+
+        function drawPacketIdle() {
+            const w = pktCanvas.width, h = pktCanvas.height;
+            pCtx.fillStyle = 'rgba(0,5,20,0.5)';
+            pCtx.fillRect(0, 0, w, h);
+
+            pCtx.fillStyle = 'rgba(0,170,255,0.2)';
+            pCtx.font = '14px monospace';
+            pCtx.textAlign = 'center';
+            pCtx.fillText('Pronto para enviar. Clique em "Enviar Pacote"', w/2, h/2);
+
+            pCtx.fillStyle = '#00aaff';
+            pCtx.beginPath();
+            pCtx.arc(50, h/2, 10, 0, Math.PI * 2);
+            pCtx.fill();
+            pCtx.fillStyle = 'rgba(255,255,255,0.5)';
+            pCtx.font = '10px monospace';
+            pCtx.textAlign = 'center';
+            pCtx.fillText('Origem', 50, h/2 + 25);
+
+            pCtx.fillStyle = '#00aaff';
+            pCtx.beginPath();
+            pCtx.arc(w - 50, h/2, 10, 0, Math.PI * 2);
+            pCtx.fill();
+            pCtx.fillStyle = 'rgba(255,255,255,0.5)';
+            pCtx.fillText('Destino', w - 50, h/2 + 25);
+        }
+
+        function startPacketAnimation() {
+            if (animId) { cancelAnimationFrame(animId); animId = null; }
+            const w = pktCanvas.width, h = pktCanvas.height;
+            phase = 1;
+
+            fragments = [];
+            const numFrags = 4;
+            for (let i = 0; i < numFrags; i++) {
+                fragments.push({
+                    x: 50, y: h/2 + (i - (numFrags-1)/2) * 12,
+                    targetX: w - 50,
+                    targetY: h/2 + (i - (numFrags-1)/2) * 12,
+                    speed: 0.8 + Math.random() * 0.6,
+                    progress: 0,
+                    color: `hsl(${200 + i * 20}, 80%, ${55 + i * 8}%)`
+                });
+            }
+
+            let frame = 0;
+            function animate() {
+                const w = pktCanvas.width, h = pktCanvas.height;
+                pCtx.fillStyle = 'rgba(0,5,20,0.5)';
+                pCtx.fillRect(0, 0, w, h);
+
+                // line
+                pCtx.strokeStyle = 'rgba(0,170,255,0.15)';
+                pCtx.lineWidth = 1;
+                pCtx.beginPath();
+                pCtx.moveTo(50, h/2);
+                pCtx.lineTo(w - 50, h/2);
+                pCtx.stroke();
+
+                // source/dest
+                pCtx.fillStyle = '#00aaff';
+                pCtx.beginPath();
+                pCtx.arc(50, h/2, 10, 0, Math.PI * 2);
+                pCtx.fill();
+                pCtx.fillStyle = 'rgba(255,255,255,0.5)';
+                pCtx.font = '10px monospace';
+                pCtx.textAlign = 'center';
+                pCtx.fillText('Origem', 50, h/2 + 25);
+
+                pCtx.fillStyle = '#00aaff';
+                pCtx.beginPath();
+                pCtx.arc(w - 50, h/2, 10, 0, Math.PI * 2);
+                pCtx.fill();
+                pCtx.fillStyle = 'rgba(255,255,255,0.5)';
+                pCtx.fillText('Destino', w - 50, h/2 + 25);
+
+                let allDone = true;
+                fragments.forEach(f => {
+                    if (f.progress < 1) {
+                        allDone = false;
+                        f.progress += f.speed * 0.02;
+                        if (f.progress > 1) f.progress = 1;
+                    }
+                    const cx = 50 + (f.targetX - 50) * f.progress;
+                    const cy = h/2 + (f.targetY - h/2) * f.progress;
+
+                    pCtx.fillStyle = f.color;
+                    pCtx.globalAlpha = 0.9;
+                    const size = 4 + (1 - f.progress) * 2;
+                    pCtx.beginPath();
+                    pCtx.arc(cx, cy, size, 0, Math.PI * 2);
+                    pCtx.fill();
+
+                    if (f.progress < 1) {
+                        pCtx.fillStyle = f.color;
+                        pCtx.globalAlpha = 0.3;
+                        pCtx.beginPath();
+                        pCtx.arc(cx, cy, size + 4, 0, Math.PI * 2);
+                        pCtx.fill();
+                    }
+                    pCtx.globalAlpha = 1;
+                });
+
+                if (!allDone) {
+                    animId = requestAnimationFrame(animate);
+                } else {
+                    phase = 3;
+                    setTimeout(() => {
+                        pCtx.fillStyle = 'rgba(0,5,20,0.5)';
+                        pCtx.fillRect(0, 0, w, h);
+                        pCtx.fillStyle = '#00ff41';
+                        pCtx.font = '16px monospace';
+                        pCtx.textAlign = 'center';
+                        pCtx.fillText('✅ Pacote remontado com sucesso!', w/2, h/2 - 10);
+                        pCtx.fillStyle = 'rgba(0,255,65,0.5)';
+                        pCtx.font = '12px monospace';
+                        pCtx.fillText('TCP/IP — Fragmentação e remontagem concluídas', w/2, h/2 + 20);
+
+                        pCtx.fillStyle = '#00aaff';
+                        pCtx.beginPath();
+                        pCtx.arc(50, h/2, 10, 0, Math.PI * 2);
+                        pCtx.fill();
+                        pCtx.fillStyle = 'rgba(255,255,255,0.5)';
+                        pCtx.font = '10px monospace';
+                        pCtx.textAlign = 'center';
+                        pCtx.fillText('Origem', 50, h/2 + 25);
+                        pCtx.fillStyle = '#00aaff';
+                        pCtx.beginPath();
+                        pCtx.arc(w - 50, h/2, 10, 0, Math.PI * 2);
+                        pCtx.fill();
+                        pCtx.fillStyle = 'rgba(255,255,255,0.5)';
+                        pCtx.fillText('Destino', w - 50, h/2 + 25);
+                    }, 300);
+                    phase = 0;
+                }
+            }
+            animate();
+        }
+
+        drawPacketIdle();
+        document.getElementById('sendPacketBtn').addEventListener('click', startPacketAnimation);
+
+        // ── TIMELINE HORIZONTAL — SCROLL PROGRESSIVO ──
+        const thNodes = document.querySelectorAll('.th-node');
+        const timelineItems = document.querySelectorAll('.timeline__item');
+        const progressBar = document.getElementById('thProgress');
+
+        function updateHorizontalTimeline() {
+            let maxVisible = -1;
+            timelineItems.forEach((item, i) => {
+                const rect = item.getBoundingClientRect();
+                const threshold = window.innerHeight * 0.75;
+                if (rect.top < threshold) {
+                    maxVisible = i;
+                }
+            });
+
+            thNodes.forEach((node, i) => {
+                node.classList.toggle('active', i <= maxVisible);
+            });
+
+            const total = thNodes.length;
+            const pct = total > 1 ? ((maxVisible + 1) / total) * 100 : 0;
+            progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+        }
+
+        window.addEventListener('scroll', updateHorizontalTimeline);
+        window.addEventListener('resize', updateHorizontalTimeline);
+        updateHorizontalTimeline();
+    </script>
+
+</body>
+</html>

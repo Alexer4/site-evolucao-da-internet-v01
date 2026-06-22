@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Evolução da Internet — Web 2.0</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23000d1a' stroke='%2300aaff' stroke-width='2'/%3E%3Cellipse cx='32' cy='32' rx='15' ry='30' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='10' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cline x1='32' y1='2' x2='32' y2='62' stroke='%2300aaff' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='44' cy='18' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='14' cy='38' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='48' cy='42' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='32' cy='12' r='2.5' fill='%23ffffff'/%3E%3Cline x1='20' y1='20' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='20' y1='20' x2='14' y2='38' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='44' y1='18' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='14' y1='38' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='20' y2='20' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E">
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="cabecalho">
+        <ul class="cabecalho_conteudo">
+            <li class="cabecalho_conteudo_item"><a href="01main.html">Início</a></li>
+            <li class="cabecalho_conteudo_item cabecalho_dropdown">
+                <a href="#">Linha do Tempo ▾</a>
+                <ul class="dropdown__menu">
+                    <li><a href="02arpanet.html">1969 — ARPANET</a></li>
+                    <li><a href="11email.html">1971 — Primeiro E-mail</a></li>
+                    <li><a href="03tcpip.html">1983 — TCP/IP</a></li>
+                    <li><a href="04www.html">1991 — World Wide Web</a></li>
+                    <li><a href="05navegadores.html">1993 — Era dos Navegadores</a></li>
+                    <li><a href="12google.html">1998 — Google & Busca</a></li>
+                    <li><a href="06web20.html">2004 — Web 2.0</a></li>
+                    <li><a href="07eramobile.html">2007 — Era Mobile</a></li>
+                    <li><a href="08web3.0.html">2020 — Web 3.0</a></li>
+                    <li><a href="09IA.html">2023+ — Inteligência Artificial</a></li>
+                    <li><a href="10rate.html">Avalie Meu Site!</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="timeline-horizontal-wrapper">
+        <div class="timeline-horizontal" id="timelineHorizontal">
+            <a href="02arpanet.html" class="th-node" data-era="0" data-year="1969" data-name="ARPANET">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1969</span>
+                <span class="th-node-name">ARPANET</span>
+            </a>
+            <a href="11email.html" class="th-node" data-era="1" data-year="1971" data-name="E-mail">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1971</span>
+                <span class="th-node-name">E-mail</span>
+            </a>
+            <a href="03tcpip.html" class="th-node" data-era="2" data-year="1983" data-name="TCP/IP">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1983</span>
+                <span class="th-node-name">TCP/IP</span>
+            </a>
+            <a href="04www.html" class="th-node" data-era="3" data-year="1991" data-name="WWW">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1991</span>
+                <span class="th-node-name">WWW</span>
+            </a>
+            <a href="05navegadores.html" class="th-node" data-era="4" data-year="1993" data-name="Navegadores">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1993</span>
+                <span class="th-node-name">Navegadores</span>
+            </a>
+            <a href="12google.html" class="th-node" data-era="5" data-year="1998" data-name="Google">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1998</span>
+                <span class="th-node-name">Google</span>
+            </a>
+            <a href="06web20.html" class="th-node" data-era="6" data-year="2004" data-name="Web 2.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2004</span>
+                <span class="th-node-name">Web 2.0</span>
+            </a>
+            <a href="07eramobile.html" class="th-node" data-era="7" data-year="2007" data-name="Mobile">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2007</span>
+                <span class="th-node-name">Mobile</span>
+            </a>
+            <a href="08web3.0.html" class="th-node" data-era="8" data-year="2020" data-name="Web 3.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2020</span>
+                <span class="th-node-name">Web 3.0</span>
+            </a>
+            <a href="09IA.html" class="th-node" data-era="9" data-year="2023" data-name="IA">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2023</span>
+                <span class="th-node-name">IA</span>
+            </a>
+        </div>
+        <div class="th-progress" id="thProgress"></div>
+    </div>
+
+    <main class="conteudo">
+
+        <div class="conteudo__container__secao1" style="background: linear-gradient(135deg, #ff69b4, #ff8c00); border-color: rgba(255,255,255,0.3);">
+            <h1 class="conteudo__titulo" style="-webkit-text-fill-color: #fff; background: none; color: #fff;">Web 2.0 — A Internet Social</h1>
+            <h3 class="conteudo__subtitulo" style="color: rgba(255,255,255,0.85);"><i>"2004–2010 · Você deixou de ser leitor e se tornou criador"</i></h3>
+            <p class="conteudo__paragrafo" style="color: rgba(255,255,255,0.9);">A Web 2.0 transformou a internet de uma biblioteca estática em uma praça pública vibrante. Orkut, Myspace, Facebook, YouTube, Twitter — o usuário comum passou a criar, compartilhar e interagir como nunca antes.</p>
+        </div>
+
+        <div class="conteudo__container__secao4" style="background: transparent; border: none; padding: 0;">
+            <h2 class="conteudo__titulo" style="color: #ff69b4;">📱 Feed Social — 2005</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Interaja com posts nostálgicos da era Web 2.0</p>
+            <div class="web20-feed">
+                <div class="web20-feed-inner">
+                    <div class="web20-post-form">
+                        <input type="text" id="web20PostInput" class="web20-post-input" placeholder="O que você está pensando?">
+                        <button id="web20PostBtn" class="web20-post-btn">Publicar</button>
+                    </div>
+                    <div id="web20Feed">
+                        <div class="web20-feed-item">
+                            <div class="web20-feed-item-header">
+                                <span class="web20-feed-item-author">Orkut User</span>
+                                <span class="web20-feed-item-time">2 min atrás</span>
+                            </div>
+                            <div class="web20-feed-item-text">Alguém mais lembra do som da internet discando? 🎶</div>
+                            <div class="web20-feed-item-actions">
+                                <button class="web20-like-btn" data-likes="15">💖 <span class="like-count">15</span></button>
+                            </div>
+                        </div>
+                        <div class="web20-feed-item">
+                            <div class="web20-feed-item-header">
+                                <span class="web20-feed-item-author">MySpace Fan</span>
+                                <span class="web20-feed-item-time">15 min atrás</span>
+                            </div>
+                            <div class="web20-feed-item-text">Personalizar meu perfil com CSS foi a coisa mais legal de 2006! 🎨</div>
+                            <div class="web20-feed-item-actions">
+                                <button class="web20-like-btn" data-likes="23">💖 <span class="like-count">23</span></button>
+                            </div>
+                        </div>
+                        <div class="web20-feed-item">
+                            <div class="web20-feed-item-header">
+                                <span class="web20-feed-item-author">YouTube Star</span>
+                                <span class="web20-feed-item-time">1 hora atrás</span>
+                            </div>
+                            <div class="web20-feed-item-text">Meu primeiro vídeo viralizou! 1.000 visualizações! 🎥</div>
+                            <div class="web20-feed-item-actions">
+                                <button class="web20-like-btn" data-likes="42">💖 <span class="like-count">42</span></button>
+                            </div>
+                        </div>
+                        <div class="web20-feed-item">
+                            <div class="web20-feed-item-header">
+                                <span class="web20-feed-item-author">Twitter Bird</span>
+                                <span class="web20-feed-item-time">3 horas atrás</span>
+                            </div>
+                            <div class="web20-feed-item-text">Tweeting from my Nokia N95! #Web2PointZero 📱</div>
+                            <div class="web20-feed-item-actions">
+                                <button class="web20-like-btn" data-likes="8">💖 <span class="like-count">8</span></button>
+                            </div>
+                        </div>
+                        <div class="web20-feed-item">
+                            <div class="web20-feed-item-header">
+                                <span class="web20-feed-item-author">Wikipedia Editor</span>
+                                <span class="web20-feed-item-time">5 horas atrás</span>
+                            </div>
+                            <div class="web20-feed-item-text">Editei 10 artigos hoje. O conhecimento colaborativo é lindo! 📚</div>
+                            <div class="web20-feed-item-actions">
+                                <button class="web20-like-btn" data-likes="31">💖 <span class="like-count">31</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo" style="color: #ff8c00;">O Legado da Web 2.0</h2>
+            <p class="conteudo__paragrafo">A Web 2.0 não foi uma atualização técnica — foi uma mudança filosófica. A internet deixou de ser uma estante de livros e se tornou uma conversa global. Plataformas como Facebook e YouTube conectaram bilhões, mas também plantaram as sementes dos desafios atuais: privacidade, desinformação e polarização.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <strong>Copyright &copy; 2026 - Criado por Alexandre e André.</strong>
+    </footer>
+
+    <style>
+        .cabecalho { border-bottom-color: rgba(255,105,180,0.3); }
+        .cabecalho a { color: #ff69b4; }
+        .conteudo__container__secao4 p { color: rgba(255,255,255,0.8); }
+    </style>
+
+    <script>
+
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drops.forEach((y, i) => {
+                const char = Math.random() > 0.5 ? '1' : '0';
+                const x = i * fontSize;
+                ctx.fillStyle = Math.random() > 0.95 ? '#ffffff' : '#ff69b4';
+                ctx.font = fontSize + 'px monospace';
+                ctx.fillText(char, x, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 40);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('visivel'); }, i * 150); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.timeline__item').forEach(item => { observer.observe(item); });
+
+        // ── Feed Likes ──
+        document.querySelectorAll('.web20-like-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const countSpan = this.querySelector('.like-count');
+                let count = parseInt(countSpan.textContent);
+                count++;
+                countSpan.textContent = count;
+                this.style.transform = 'scale(1.2)';
+                setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
+            });
+        });
+
+        // ── New Post ──
+        document.getElementById('web20PostBtn').addEventListener('click', function() {
+            const input = document.getElementById('web20PostInput');
+            const text = input.value.trim();
+            if (!text) return;
+            input.value = '';
+
+            const feed = document.getElementById('web20Feed');
+            const item = document.createElement('div');
+            item.className = 'web20-feed-item';
+            item.innerHTML = `
+                <div class="web20-feed-item-header">
+                    <span class="web20-feed-item-author">Visitante</span>
+                    <span class="web20-feed-item-time">agora mesmo</span>
+                </div>
+                <div class="web20-feed-item-text">${text}</div>
+                <div class="web20-feed-item-actions">
+                    <button class="web20-like-btn" data-likes="0">💖 <span class="like-count">0</span></button>
+                </div>
+            `;
+            feed.prepend(item);
+            item.style.animation = 'fadeIn 0.3s ease';
+
+            item.querySelector('.web20-like-btn').addEventListener('click', function() {
+                const countSpan = this.querySelector('.like-count');
+                let count = parseInt(countSpan.textContent);
+                count++;
+                countSpan.textContent = count;
+            });
+        });
+
+        document.getElementById('web20PostInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('web20PostBtn').click();
+            }
+        });
+
+        // ── TIMELINE HORIZONTAL — SCROLL PROGRESSIVO ──
+        const thNodes = document.querySelectorAll('.th-node');
+        const timelineItems = document.querySelectorAll('.timeline__item');
+        const progressBar = document.getElementById('thProgress');
+
+        function updateHorizontalTimeline() {
+            let maxVisible = -1;
+            timelineItems.forEach((item, i) => {
+                const rect = item.getBoundingClientRect();
+                const threshold = window.innerHeight * 0.75;
+                if (rect.top < threshold) {
+                    maxVisible = i;
+                }
+            });
+
+            thNodes.forEach((node, i) => {
+                node.classList.toggle('active', i <= maxVisible);
+            });
+
+            const total = thNodes.length;
+            const pct = total > 1 ? ((maxVisible + 1) / total) * 100 : 0;
+            progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+        }
+
+        window.addEventListener('scroll', updateHorizontalTimeline);
+        window.addEventListener('resize', updateHorizontalTimeline);
+        updateHorizontalTimeline();
+    </script>
+
+</body>
+</html>

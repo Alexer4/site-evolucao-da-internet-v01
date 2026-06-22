@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styles.css">
+    <title>Evolução da Internet — Era Mobile</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23000d1a' stroke='%2300aaff' stroke-width='2'/%3E%3Cellipse cx='32' cy='32' rx='15' ry='30' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cellipse cx='32' cy='32' rx='30' ry='10' fill='none' stroke='%2300aaff' stroke-width='1' opacity='0.6'/%3E%3Cline x1='32' y1='2' x2='32' y2='62' stroke='%2300aaff' stroke-width='1' opacity='0.4'/%3E%3Ccircle cx='20' cy='20' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='44' cy='18' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='14' cy='38' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='48' cy='42' r='2.5' fill='%2300aaff'/%3E%3Ccircle cx='32' cy='12' r='2.5' fill='%23ffffff'/%3E%3Cline x1='20' y1='20' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='20' y1='20' x2='14' y2='38' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='44' y1='18' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='14' y1='38' x2='48' y2='42' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='44' y2='18' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='32' y1='12' x2='20' y2='20' stroke='%2300aaff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E">
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+    <canvas id="particles-canvas"></canvas>
+
+    <header class="cabecalho">
+        <ul class="cabecalho_conteudo">
+            <li class="cabecalho_conteudo_item"><a href="01main.html">Início</a></li>
+            <li class="cabecalho_conteudo_item cabecalho_dropdown">
+                <a href="#">Linha do Tempo ▾</a>
+                <ul class="dropdown__menu">
+                    <li><a href="02arpanet.html">1969 — ARPANET</a></li>
+                    <li><a href="11email.html">1971 — Primeiro E-mail</a></li>
+                    <li><a href="03tcpip.html">1983 — TCP/IP</a></li>
+                    <li><a href="04www.html">1991 — World Wide Web</a></li>
+                    <li><a href="05navegadores.html">1993 — Era dos Navegadores</a></li>
+                    <li><a href="12google.html">1998 — Google & Busca</a></li>
+                    <li><a href="06web20.html">2004 — Web 2.0</a></li>
+                    <li><a href="07eramobile.html">2007 — Era Mobile</a></li>
+                    <li><a href="08web3.0.html">2020 — Web 3.0</a></li>
+                    <li><a href="09IA.html">2023+ — Inteligência Artificial</a></li>
+                    <li><a href="10rate.html">Avalie Meu Site!</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="timeline-horizontal-wrapper">
+        <div class="timeline-horizontal" id="timelineHorizontal">
+            <a href="02arpanet.html" class="th-node" data-era="0" data-year="1969" data-name="ARPANET">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1969</span>
+                <span class="th-node-name">ARPANET</span>
+            </a>
+            <a href="11email.html" class="th-node" data-era="1" data-year="1971" data-name="E-mail">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1971</span>
+                <span class="th-node-name">E-mail</span>
+            </a>
+            <a href="03tcpip.html" class="th-node" data-era="2" data-year="1983" data-name="TCP/IP">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1983</span>
+                <span class="th-node-name">TCP/IP</span>
+            </a>
+            <a href="04www.html" class="th-node" data-era="3" data-year="1991" data-name="WWW">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1991</span>
+                <span class="th-node-name">WWW</span>
+            </a>
+            <a href="05navegadores.html" class="th-node" data-era="4" data-year="1993" data-name="Navegadores">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1993</span>
+                <span class="th-node-name">Navegadores</span>
+            </a>
+            <a href="12google.html" class="th-node" data-era="5" data-year="1998" data-name="Google">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">1998</span>
+                <span class="th-node-name">Google</span>
+            </a>
+            <a href="06web20.html" class="th-node" data-era="6" data-year="2004" data-name="Web 2.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2004</span>
+                <span class="th-node-name">Web 2.0</span>
+            </a>
+            <a href="07eramobile.html" class="th-node" data-era="7" data-year="2007" data-name="Mobile">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2007</span>
+                <span class="th-node-name">Mobile</span>
+            </a>
+            <a href="08web3.0.html" class="th-node" data-era="8" data-year="2020" data-name="Web 3.0">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2020</span>
+                <span class="th-node-name">Web 3.0</span>
+            </a>
+            <a href="09IA.html" class="th-node" data-era="9" data-year="2023" data-name="IA">
+                <span class="th-node-dot"></span>
+                <span class="th-node-year">2023</span>
+                <span class="th-node-name">IA</span>
+            </a>
+        </div>
+        <div class="th-progress" id="thProgress"></div>
+    </div>
+
+    <main class="conteudo">
+
+        <div class="conteudo__container__secao1">
+            <h1 class="conteudo__titulo">Era Mobile — A Internet no Bolso</h1>
+            <h3 class="conteudo__subtitulo"><i>"2007 · O iPhone mudou tudo — a internet saiu do desktop e foi para o bolso de 5 bilhões de pessoas"</i></h3>
+            <p class="conteudo__paragrafo">Em 9 de janeiro de 2007, Steve Jobs apresentou o primeiro iPhone. Não era apenas um telefone — era um computador de bolso com tela sensível ao toque. A internet, que antes exigia um desktop e um cabo, agora cabia na palma da mão. O mundo nunca mais seria o mesmo.</p>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">📱 Desktop vs Mobile</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Veja como o layout se adapta ao dispositivo móvel</p>
+            <div class="mobile-toggle">
+                <button id="mobileToggleBtn" class="mobile-toggle-btn">🔄 Alternar: Depois do Responsive</button>
+            </div>
+            <div class="mobile-compare">
+                <div class="mobile-frame">
+                    <div class="mobile-frame-header">🖥️ Desktop — 1024px</div>
+                    <div class="mobile-frame-body" id="desktopFrame">
+                        <h1 style="font-size:28px;margin-bottom:10px;color:#333;">Meu Site</h1>
+                        <nav style="background:#eee;padding:10px;margin-bottom:15px;">
+                            <a href="#" style="margin-right:15px;color:#00f;">Home</a>
+                            <a href="#" style="margin-right:15px;color:#00f;">Sobre</a>
+                            <a href="#" style="margin-right:15px;color:#00f;">Produtos</a>
+                            <a href="#" style="margin-right:15px;color:#00f;">Contato</a>
+                        </nav>
+                        <div style="display:flex;gap:15px;">
+                            <div style="flex:2;">
+                                <h2 style="font-size:20px;color:#333;">Bem-vindo!</h2>
+                                <p style="color:#555;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='150' viewBox='0 0 300 150'%3E%3Crect fill='%23ddd' width='300' height='150'/%3E%3Ctext fill='%23999' font-family='Arial' font-size='14' x='150' y='75' text-anchor='middle'%3EImagem Exemplo%3C/text%3E%3C/svg%3E" style="max-width:100%;height:auto;margin:10px 0;">
+                                <p style="color:#555;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            </div>
+                            <div style="flex:1;background:#f5f5f5;padding:15px;border-radius:8px;">
+                                <h3 style="font-size:16px;color:#333;">Sidebar</h3>
+                                <p style="color:#555;font-size:13px;">Links rápidos, anúncios e informações complementares.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-frame" style="max-width:200px;">
+                    <div class="mobile-frame-header">📱 Mobile — 320px</div>
+                    <div class="mobile-frame-body" id="mobileFrame">
+                        <h1 style="font-size:20px;margin-bottom:8px;color:#333;">Meu Site</h1>
+                        <div style="background:#eee;padding:8px;margin-bottom:10px;display:flex;flex-wrap:wrap;gap:5px;">
+                            <a href="#" style="color:#00f;font-size:13px;">Home</a>
+                            <a href="#" style="color:#00f;font-size:13px;">Sobre</a>
+                            <a href="#" style="color:#00f;font-size:13px;">Produtos</a>
+                            <a href="#" style="color:#00f;font-size:13px;">Contato</a>
+                        </div>
+                        <h2 style="font-size:18px;color:#333;">Bem-vindo!</h2>
+                        <p style="color:#555;font-size:13px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='150' viewBox='0 0 300 150'%3E%3Crect fill='%23ddd' width='300' height='150'/%3E%3Ctext fill='%23999' font-family='Arial' font-size='14' x='150' y='75' text-anchor='middle'%3EImagem Exemplo%3C/text%3E%3C/svg%3E" style="max-width:100%;height:auto;margin:8px 0;" id="mobileImg">
+                        <p style="color:#555;font-size:13px;">Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                        <div style="background:#f5f5f5;padding:10px;margin-top:10px;border-radius:8px;">
+                            <h3 style="font-size:14px;color:#333;">Sidebar</h3>
+                            <p style="color:#555;font-size:12px;">Links e info.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">📱 Grade de Apps (2007–2012)</h2>
+            <p style="color:rgba(255,255,255,0.75);text-align:center;">Arraste os ícones para reorganizar como na tela inicial do iOS</p>
+            <div class="app-grid" id="appGrid">
+                <div class="app-icon" draggable="true" style="background:linear-gradient(135deg,#ff6b6b,#c0392b);">📞</div>
+                <div class="app-icon" draggable="true" style="background:linear-gradient(135deg,#4ecdc4,#2c3e50);">📧</div>
+                <div class="app-icon" draggable="true" style="background:linear-gradient(135deg,#45b7d1,#2980b9);">🌐</div>
+                <div class="app-icon" draggable="true" style="background:linear-gradient(135deg,#f39c12,#e67e22);">🎵</div>
+                <div class="app-icon" draggable="true" style="background:linear-gradient(135deg,#9b59b6,#8e44ad);">📸</div>
+                <div class="app-icon" draggable="true" style="background:linear-gradient(135deg,#2ecc71,#27ae60);">💬</div>
+                <div class="app-icon" draggable="true" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">🎮</div>
+                <div class="app-icon" draggable="true" style="background:linear-gradient(135deg,#3498db,#2980b9);">📺</div>
+            </div>
+        </div>
+
+        <div class="conteudo__container__secao4">
+            <h2 class="conteudo__titulo">O Impacto</h2>
+            <p class="conteudo__paragrafo">O smartphone democratizou o acesso à internet. Em 2007, havia cerca de 1 bilhão de usuários de internet, a maioria no desktop. Hoje, mais de 5 bilhões de pessoas acessam a internet, e mais de 60% delas exclusivamente pelo celular. A mobilidade não foi apenas uma evolução tecnológica — foi uma revolução social.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <strong>Copyright &copy; 2026 - Criado por Alexandre e André.</strong>
+    </footer>
+
+    <script>
+
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = Array(columns).fill(1);
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drops.forEach((y, i) => {
+                const char = Math.random() > 0.5 ? '1' : '0';
+                const x = i * fontSize;
+                ctx.fillStyle = Math.random() > 0.95 ? '#ffffff' : '#00aaff';
+                ctx.font = fontSize + 'px monospace';
+                ctx.fillText(char, x, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) { drops[i] = 0; }
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 40);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) { setTimeout(() => { entry.target.classList.add('visivel'); }, i * 150); observer.unobserve(entry.target); }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.timeline__item').forEach(item => { observer.observe(item); });
+
+        // ── Mobile Toggle ──
+        let responsiveMode = true;
+        document.getElementById('mobileToggleBtn').addEventListener('click', function() {
+            responsiveMode = !responsiveMode;
+            const mobileFrame = document.getElementById('mobileFrame');
+            const desktopFrame = document.getElementById('desktopFrame');
+            if (responsiveMode) {
+                this.textContent = '🔄 Alternar: Depois do Responsive';
+                mobileFrame.classList.remove('not-responsive');
+                desktopFrame.classList.remove('not-responsive');
+            } else {
+                this.textContent = '🔄 Alternar: Antes do Responsive';
+                mobileFrame.classList.add('not-responsive');
+                desktopFrame.classList.add('not-responsive');
+                mobileFrame.style.overflow = 'auto';
+                mobileFrame.style.width = '800px';
+            }
+        });
+
+        // ── Draggable Apps ──
+        let draggedEl = null;
+
+        document.querySelectorAll('.app-icon').forEach(icon => {
+            icon.addEventListener('dragstart', function(e) {
+                draggedEl = this;
+                this.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+            });
+
+            icon.addEventListener('dragend', function() {
+                this.classList.remove('dragging');
+                draggedEl = null;
+            });
+
+            icon.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+            });
+
+            icon.addEventListener('drop', function(e) {
+                e.preventDefault();
+                if (draggedEl && draggedEl !== this) {
+                    const grid = document.getElementById('appGrid');
+                    const children = Array.from(grid.children);
+                    const fromIdx = children.indexOf(draggedEl);
+                    const toIdx = children.indexOf(this);
+                    if (fromIdx < toIdx) {
+                        this.parentNode.insertBefore(draggedEl, this.nextSibling);
+                    } else {
+                        this.parentNode.insertBefore(draggedEl, this);
+                    }
+                }
+            });
+        });
+
+        // ── TIMELINE HORIZONTAL — SCROLL PROGRESSIVO ──
+        const thNodes = document.querySelectorAll('.th-node');
+        const timelineItems = document.querySelectorAll('.timeline__item');
+        const progressBar = document.getElementById('thProgress');
+
+        function updateHorizontalTimeline() {
+            let maxVisible = -1;
+            timelineItems.forEach((item, i) => {
+                const rect = item.getBoundingClientRect();
+                const threshold = window.innerHeight * 0.75;
+                if (rect.top < threshold) {
+                    maxVisible = i;
+                }
+            });
+
+            thNodes.forEach((node, i) => {
+                node.classList.toggle('active', i <= maxVisible);
+            });
+
+            const total = thNodes.length;
+            const pct = total > 1 ? ((maxVisible + 1) / total) * 100 : 0;
+            progressBar.style.width = Math.min(100, Math.max(0, pct)) + '%';
+        }
+
+        window.addEventListener('scroll', updateHorizontalTimeline);
+        window.addEventListener('resize', updateHorizontalTimeline);
+        updateHorizontalTimeline();
+    </script>
+
+</body>
+</html>
